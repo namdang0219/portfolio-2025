@@ -10,13 +10,10 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				background: "var(--background)",
-				foreground: "var(--foreground)",
+				primary: "#84B5C5",
+				background: "#fcfcfc",
 			},
-			fontFamily: {
-				inter: ["var(--font-inter)", "sans-serif"],
-				mplus: ["var(--font-mplus)", "sans-serif"],
-			},
+			fontFamily: {},
 		},
 	},
 	plugins: [],

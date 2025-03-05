@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "./globals.scss";
 // import { Inter, M_PLUS_1p } from "next/font/google";
 // import SplashCursor from "@/components/SplashCursor";
 
 import "yakuhanjp";
 import "yakuhanjp/dist/css/yakuhanrp.css";
 import "yakuhanjp/dist/css/yakuhanrp_s.css";
+import SmoothScrollWrapper from "@/layout/SmoothScrollWrapper";
 
 // const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 // const mPlus1p = M_PLUS_1p({
@@ -26,9 +27,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				// className={`${inter.variable} ${mPlus1p.variable} antialiased`}
+			// className={`${inter.variable} ${mPlus1p.variable} antialiased`}
 			>
-				{children}
+				<SmoothScrollWrapper>{children}</SmoothScrollWrapper>
 				{/* <SplashCursor /> */}
 			</body>
 		</html>

@@ -17,6 +17,18 @@ const nextConfig: NextConfig = {
 
 		return config;
 	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "i.pinimg.com",
+			},
+			{
+				protocol: "https",
+				hostname: "img.shields.io",
+			},
+		],
+	},
 };
 
 export default nextConfig;
