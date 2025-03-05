@@ -1,3 +1,4 @@
+import Footer from "@/module/Footer";
 import About from "@/module/home/About";
 import Header from "@/module/home/Header";
 import Product from "@/module/home/Product";
@@ -32,15 +33,11 @@ const HomePage = () => {
 					<Link
 						key={index}
 						href={item.href}
-						className="block text-right tracking-widest"
+						className="block ml-auto w-fit tracking-widest relative group"
 					>
-						<div className="w-[150px] flex items-center gap-2 group">
-							<div className="h-[1px] flex-1 bg-gray-800 group-hover:bg-primary opacity-0 group-hover:opacity-100" />
+						<span className="">{item.label}</span>
 
-							<span className="group-hover:text-primary">
-								{item.label}
-							</span>
-						</div>
+						<div className="absolute w-0 bg-gray-500 -bottom-1 transition-all duration-300 left-0 h-[1px] group-hover:w-full"></div>
 					</Link>
 				))}
 			</div>
@@ -53,7 +50,9 @@ const HomePage = () => {
 
 				<About />
 
-				<div className="min-h-screen" />
+				<Footer />
+
+				{/* <div className="min-h-screen" /> */}
 			</main>
 		</div>
 	);
@@ -62,7 +61,7 @@ const HomePage = () => {
 const navigations: { label: string; href: string }[] = [
 	{
 		label: "トップ",
-		href: "#",
+		href: "#top",
 	},
 	{
 		label: "作品",

@@ -1,11 +1,12 @@
 import Button from "@/components/Button";
+import Magnet from "@/components/Magnet";
 import SectionTitle from "@/components/SectionTitle";
 import Image from "next/image";
 import React from "react";
 
 const Product = () => {
 	return (
-		<div id="product" className="min-h-screen container">
+		<div id="product" className="scroll-m-10 container">
 			<SectionTitle title="作成したもの" subTitle="#Product" />
 
 			{/* product list  */}
@@ -56,7 +57,9 @@ const Product = () => {
 			</div>
 
 			<div className="mt-24 flex justify-center">
-				<Button text="すべてみる" />
+				<Magnet>
+					<Button text="すべてみる" />
+				</Magnet>
 			</div>
 		</div>
 	);
