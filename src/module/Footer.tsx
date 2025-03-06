@@ -10,7 +10,7 @@ import { colors } from "@/utils/colors";
 
 const Footer = () => {
 	return (
-		<div id="contact">
+		<>
 			<div className="py-16 mt-10 flex">
 				<div className="flex-1 flex items-center container justify-center flex-col">
 					{/* <div className="relative w-[120px] aspect-square mb-4">
@@ -64,7 +64,7 @@ const Footer = () => {
 								placement="bottom"
 								title={s.label}
 								color={colors.primary}
-                                className="scale-100 hover:scale-110 transition-all duration-300"
+								className="scale-100 hover:scale-110 transition-all duration-300"
 							>
 								<Link href={s.href} className="block">
 									<div className="w-14 aspect-square rounded-full flex items-center justify-center border border-primary hover:bg-primary text-primary hover:text-white bg-white">
@@ -79,7 +79,7 @@ const Footer = () => {
 			<small className="text-xs block font-light text-gray-400 text-center my-4">
 				&copy; 2025 Dang Xuan Nam. All rights reserved
 			</small>
-		</div>
+		</>
 	);
 };
 

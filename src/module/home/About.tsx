@@ -7,7 +7,7 @@ import React from "react";
 const About = () => {
 	return (
 		<div id="about" className="container scroll-m-10">
-			<SectionTitle title="私について" subTitle="#About" />
+			<SectionTitle title="私について" subTitle="About" />
 
 			<div>
 				<div className="flex items-center gap-20 mt-14">
@@ -21,7 +21,7 @@ const About = () => {
 							</h4>
 						</div>
 
-						<p className="leading-loose font-light tracking-[4px] text-gray-600 text-[17px] w-full max-w-[86%] text-justify">
+						<p className="leading-loose font-light tracking-[3px] text-gray-600 text-[17px] w-full max-w-[86%] text-justify">
 							2001年生まれ、ベトナム出身です。ECCコンピュータ専門学校に通っています。
 							<br />
 							<br />
@@ -42,7 +42,7 @@ const About = () => {
 				<div className="w-fit mt-10">
 					<Magnet>
 						<Button
-							href="/#"
+							href="/about"
 							text="詳しく見る"
 							containerClassName="origin-left"
 						/>

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
@@ -15,17 +17,22 @@ const Button: React.FC<ButtonProps> = ({
 	href = "#",
 	containerClassName = "",
 }) => {
-	return (
-		<Link
-			href={href}
-			className={`block hover:scale-105 transition-all ${containerClassName}`}
-		>
-			<div className="flex items-center text-primary  gap-4">
+	const ButtonContent = () => {
+		return (
+			<div
+				className={`flex items-center cursor-pointer text-primary gap-4 hover:scale-105 transition-all ${containerClassName}`}
+			>
 				<div className="w-24 aspect-square rounded-full border border-primary flex items-center justify-center">
 					{icon}
 				</div>
 				<span className="font-light">{text}</span>
 			</div>
+		);
+	};
+
+	return (
+		<Link href={href} className={`block`}>
+			<ButtonContent />
 		</Link>
 	);
 };

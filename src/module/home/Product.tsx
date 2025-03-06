@@ -7,7 +7,7 @@ import React from "react";
 const Product = () => {
 	return (
 		<div id="product" className="scroll-m-10 container">
-			<SectionTitle title="作成したもの" subTitle="#Product" />
+			<SectionTitle title="作成したもの" subTitle="Product" />
 
 			{/* product list  */}
 			<div className="flex flex-wrap gap-14">
