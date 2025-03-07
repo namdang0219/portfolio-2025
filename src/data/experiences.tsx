@@ -1,12 +1,6 @@
-import { ReactNode } from "react";
+import { ExperienceType } from "@/types/ExperienceType";
 
-export const experiences: {
-	title: string;
-	subtitle: string;
-	content: ReactNode;
-	year: number;
-	month: number;
-}[] = [
+export const experiences: ExperienceType[] = [
 	{
 		title: "来日・日生日本語学園 入学",
 		subtitle: "（2022年3月 卒業）",

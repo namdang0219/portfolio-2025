@@ -6,7 +6,7 @@ type HeaderNavigationProps = {
 	navigations: NavigationType[];
 };
 
-const HeaderNavigation: FC<HeaderNavigationProps> = ({ navigations }) => {
+const Navigations: FC<HeaderNavigationProps> = ({ navigations }) => {
 	return (
 		<div className="font-light flex flex-col fixed right-10 top-10 gap-4 transition-all z-50">
 			{navigations.map((item, index) => (
@@ -24,4 +24,4 @@ const HeaderNavigation: FC<HeaderNavigationProps> = ({ navigations }) => {
 	);
 };
 
-export default HeaderNavigation;
+export default Navigations;

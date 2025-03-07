@@ -1,24 +1,25 @@
 import Footer from "@/module/Footer";
 import HeaderLogo from "@/module/HeaderLogo";
-import HeaderNavigation from "@/module/HeaderNavigation";
-import About from "@/module/home/About";
-import Header from "@/module/home/Header";
-import Product from "@/module/home/Product";
 import React from "react";
+import ProductSection from "./ProductSection";
+import AboutSection from "./AboutSection";
+import HeroSection from "./HeroSection";
+import Navigations from "@/components/Navigations";
 
 const HomePage = () => {
 	return (
 		<div className="relative">
 			{/* topbar - ele is fixed  */}
 			<HeaderLogo />
-			<HeaderNavigation navigations={navigations} />
+			<Navigations navigations={navigations} />
 
-			{/* header  */}
-			<Header />
+			{/* first view */}
+			<HeroSection />
 
 			<main className="flex flex-col gap-24">
-				<Product />
-				<About />
+				<ProductSection />
+
+				<AboutSection />
 
 				<div id="contact">
 					<Footer />

@@ -4,7 +4,7 @@ import SectionTitle from "@/components/SectionTitle";
 import Image from "next/image";
 import React from "react";
 
-const Product = () => {
+const ProductSection = () => {
 	return (
 		<div id="product" className="scroll-m-10 container">
 			<SectionTitle title="作成したもの" subTitle="Product" />
@@ -65,4 +65,4 @@ const Product = () => {
 	);
 };
 
-export default Product;
+export default ProductSection;

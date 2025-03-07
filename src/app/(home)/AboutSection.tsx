@@ -4,7 +4,7 @@ import SectionTitle from "@/components/SectionTitle";
 import Image from "next/image";
 import React from "react";
 
-const About = () => {
+const AboutSection = () => {
 	return (
 		<div id="about" className="container scroll-m-10">
 			<SectionTitle title="私について" subTitle="About" />
@@ -53,4 +53,4 @@ const About = () => {
 	);
 };
 
-export default About;
+export default AboutSection;

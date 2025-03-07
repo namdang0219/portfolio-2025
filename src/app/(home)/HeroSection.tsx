@@ -7,7 +7,7 @@ import Magnet from "@/components/Magnet";
 
 const TOKAngleFont = localFont({ src: "./TOKAngleFREE-VariableVF.ttf" });
 
-const Header = () => {
+const HeroSection = () => {
 	return (
 		<div
 			id="top"
@@ -96,4 +96,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default HeroSection;
