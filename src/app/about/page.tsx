@@ -1,16 +1,22 @@
 "use client";
 
 import SectionTitle from "@/components/SectionTitle";
-import Spacer from "@/components/Spacer";
 import Footer from "@/module/Footer";
 import HeaderLogo from "@/module/HeaderLogo";
 import HeaderNavigation from "@/module/HeaderNavigation";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { ReactNode } from "react";
+// import { useCollapse } from "react-collapsed";
+import { Icon } from "@iconify-icon/react";
+import { experiences } from "@/data/experiences";
 
 const AboutPage = () => {
 	const {} = useRouter();
+
+	// const { getToggleProps, getCollapseProps, isExpanded } = useCollapse({
+	// 	defaultExpanded: true,
+	// });
 
 	return (
 		<div className="relative">
@@ -107,80 +113,191 @@ const AboutPage = () => {
 				<div id="skill" className="py-14 container mt-10">
 					<SectionTitle title="スキル" subTitle="Skill" />
 
-					<div></div>
+					{/* collapse example */}
+					<div>
+						{/* <button {...getToggleProps()}>
+							{isExpanded ? "Collapse" : "Expand"}
+						</button>
+						<section {...getCollapseProps()}>
+							Collapsed content 🙈
+						</section> */}
+					</div>
+
+					<div>
+						{skills.map((s, index) => (
+							<div
+								key={index}
+								className={`flex gap-10 py-8 border-b ${
+									index === skills.length - 1
+										? "border-b-transparent"
+										: "border-b-slate-200"
+								}`}
+							>
+								<span className="text-primary w-[200px] mt-3">
+									{s.category}
+								</span>
+
+								<div className="flex flex-wrap flex-1">
+									{s.skillList.map((item, idx) => (
+										<div
+											key={idx}
+											className={`inline-block`}
+										>
+											<div className="flex items-center">
+												<div className="flex items-center gap-1.5 hover:bg-slate-100 rounded-lg cursor-pointer px-3 py-1">
+													<span className="text-[30px] leading-none mt-1">
+														{item.icon}
+													</span>
+													<span className="text-lg font-light">
+														{item.name}
+													</span>
+												</div>
+												{idx !==
+													s.skillList.length - 1 && (
+													<span className="mx-2 font-thin text-2xl leading-none -mt-1">
+														/
+													</span>
+												)}
+											</div>
+										</div>
+									))}
+								</div>
+							</div>
+						))}
+					</div>
 				</div>
+
+				{/* <Spacer /> */}
 
 				<div id="contact">
 					<Footer />
 				</div>
-
-				<Spacer />
 			</main>
 		</div>
 	);
 };
 
-const experiences: {
-	title: string;
-	subtitle: string;
-	content: ReactNode;
-	year: number;
-	month: number;
+const skills: {
+	category: string;
+	skillList: {
+		name: string;
+		level: string;
+		icon: ReactNode;
+	}[];
 }[] = [
+	// frontend
 	{
-		title: "来日・日生日本語学園 入学",
-		subtitle: "（2022年3月 卒業）",
-		content: (
-			<>
-				日生日本語学園で 1年6ヶ月間学び、その間に
-				<em className="text-cyan-500">
-					日本語能力試験（JLPT）N3・N2に合格
-				</em>
-				しました。
-			</>
-		),
-		year: 2020,
-		month: 11,
+		category: "フロントエンド",
+		skillList: [
+			{
+				name: "React",
+				level: "80%",
+				icon: <Icon icon="logos:react" />,
+			},
+			{
+				name: "Next JS",
+				level: "80%",
+				icon: <Icon icon="logos:nextjs-icon" />,
+			},
+			{
+				name: "Tailwind",
+				level: "80%",
+				icon: <Icon icon="vscode-icons:file-type-tailwind" />,
+			},
+			{
+				name: "Sass",
+				level: "80%",
+				icon: <Icon icon="devicon:sass" />,
+			},
+		],
 	},
+	// backend
 	{
-		title: "ECC国際外語専門学校 入学",
-		subtitle: "（2023年3月 卒業）",
-		content: (
-			<>
-				ECCコンピュータ専門学校の入学試験に不合格だったため、もう1年間ECC国際外語専門学校で日本語を学びながら、再挑戦の準備をしました。在学中に
-				<em className="text-cyan-500">
-					日本語能力試験（JLPT）N1に合格
-				</em>
-				し、
-				<em className="text-cyan-500">日本留学試験で250点を取得</em>
-				しました。
-			</>
-		),
-		year: 2022,
-		month: 4,
+		category: "バックエンド",
+		skillList: [
+			{
+				name: "Node JS",
+				level: "80%",
+				icon: <Icon icon="material-icon-theme:nodejs" />,
+			},
+			{
+				name: "Firebase",
+				level: "80%",
+				icon: <Icon icon="devicon:firebase" />,
+			},
+			{
+				name: "MySQL",
+				level: "80%",
+				icon: <Icon icon="logos:mysql" />,
+			},
+			{
+				name: "PHP",
+				level: "80%",
+				icon: <Icon icon="material-icon-theme:php" />,
+			},
+		],
 	},
+	// application
 	{
-		title: "ECCコンピュータ専門学校 入学",
-		subtitle: "（2026年3月 卒業見込み）",
-		content: (
-			<>
-				ECCコンピュータ専門学校では、デザインと開発の基礎知識を学びました。例えば、HTML、CSS、JavaScript、PHP、Adobe
-				Illustrator・Photoshop
-				などです。学校以外でも、YouTubeやオンラインの資料を活用し、最新の技術である
-				<em className="text-cyan-500">React</em>{" "}
-				を独学しました。その後、モバイルアプリ開発にも挑戦したくなり、
-				<em className="text-cyan-500">React Native</em>{" "}
-				も学び始めました。
-				<br />
-				<br />
-				約1年半、ReactとReact
-				Nativeの開発を続け、スキルを磨いてきました。現在はフルスタックエンジニアを目指し、
-				<em className="text-cyan-500">バックエンド開発（Node.js）</em>
-				の勉強も始めています。
-			</>
-		),
-		year: 2023,
-		month: 4,
+		category: "モバイルアプリ",
+		skillList: [
+			{
+				name: "React Native",
+				level: "80%",
+				icon: <Icon icon="devicon:reactnative-wordmark" />,
+			},
+			{
+				name: "Expo",
+				level: "80%",
+				icon: <Icon icon="file-icons:expo" />,
+			},
+		],
+	},
+	// tools
+	{
+		category: "その他",
+		skillList: [
+			{
+				name: "VS Code",
+				level: "80%",
+				icon: <Icon icon="vscode-icons:file-type-vscode" />,
+			},
+			{
+				name: "Typescript",
+				level: "80%",
+				icon: (
+					<Icon icon="vscode-icons:file-type-typescript-official" />
+				),
+			},
+			{
+				name: "Redux Toolkit",
+				level: "80%",
+				icon: (
+					<Icon icon="logos:redux" />
+				),
+			},
+		],
+	},
+	// design
+	{
+		category: "デザイン",
+		skillList: [
+			{
+				name: "Figma",
+				level: "80%",
+				icon: <Icon icon="material-icon-theme:figma" />,
+			},
+			{
+				name: "Illustrator",
+				level: "80%",
+				icon: <Icon icon="skill-icons:illustrator" />,
+			},
+			{
+				name: "Photoshop",
+				level: "80%",
+				icon: <Icon icon="skill-icons:photoshop" />,
+			},
+		],
 	},
 ];
 
