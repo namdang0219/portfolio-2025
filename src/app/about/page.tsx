@@ -3,7 +3,6 @@
 import Footer from "@/module/Footer";
 import HeaderLogo from "@/module/HeaderLogo";
 import React from "react";
-// import { useCollapse } from "react-collapsed";
 import TopSection from "./TopSection";
 import ExperienceSection from "./ExperienceSection";
 import SkillSection from "./SkillSection";
