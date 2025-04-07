@@ -1,25 +1,30 @@
+'use client'
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const ProductItem = () => {
+	const route = useRouter()
+
 	return (
-		<div className="group shadow-2xl shadow-slate-200 hover:shadow-slate-300 transition-all hover:scale-105 cursor-pointer duration-500">
+		<div onClick={() => route.push('/product/124')} className="transition-all duration-500 shadow-2xl cursor-pointer group shadow-slate-200 hover:shadow-slate-300 hover:scale-105">
 			<div className="relative w-full aspect-[3/2] overflow-hidden">
 				<Image
 					src="https://i.pinimg.com/736x/35/ce/16/35ce16a0c4c1e9632907dc6dfc97187e.jpg"
 					alt="product-img"
 					fill
-					className="w-full h-full object-cover object-center"
+					className="object-cover object-center w-full h-full"
 				/>
 
-				<div className="absolute bottom-0 scale-65 delay-75 opacity-0 group-hover:bottom-4 group-hover:opacity-100 group-hover:scale-100 left-1/2 -translate-x-1/2 px-6 py-3 bg-white rounded-full font-light text-sm duration-300 shadow-xl">
+				<div className="absolute bottom-0 px-6 py-3 text-sm font-light duration-300 delay-75 -translate-x-1/2 bg-white rounded-full shadow-xl opacity-0 scale-65 group-hover:bottom-4 group-hover:opacity-100 group-hover:scale-100 left-1/2">
 					一年生の前期・2ヶ月
 				</div>
 			</div>
 
 			<div className="px-5 py-3">
 				<div className="text-sm">
-					<span className="font-light text-primary mr-4">
+					<span className="mr-4 font-light text-primary">
 						チーム制作
 					</span>
 					<span className="text-gray-400 font-extralight">
@@ -27,12 +32,12 @@ const ProductItem = () => {
 					</span>
 				</div>
 
-				<p className="text-lg text-slate-700 w-fit transition-all font-medium">
+				<p className="text-lg font-medium transition-all text-slate-700 w-fit">
 					Venus Cinema Dashboard
 				</p>
 
 				{/* tech  */}
-				<div className="text-gray-400 font-light text-sm mt-1">
+				<div className="mt-1 text-sm font-light text-gray-400">
 					{["React", "React Native", "Firebase"].join(", ")}
 				</div>
 			</div>

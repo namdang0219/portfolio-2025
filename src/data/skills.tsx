@@ -1,6 +1,15 @@
 import { Icon } from "@iconify-icon/react";
 import { SkillType } from "@/types/SkillType";
 
+/**
+ * When add new skill to SKILLS data below,
+ * import SkillNames at the last of file in another file
+ * and print it to console screen. You can see all the
+ * name of skill.
+ * It might be useful when you want to know what skill you
+ * have in database
+ */
+
 export const skills: SkillType[] = [
 	// frontend
 	{
@@ -120,3 +129,10 @@ export const skills: SkillType[] = [
 		],
 	},
 ];
+
+// export const allSkills = skills.map((s) => s.skillList).flatMap((list) => list);
+
+export const skillNames = skills
+	.map((s) => s.skillList)
+	.flatMap((list) => list)
+	.map((skill) => skill.name) as string[];

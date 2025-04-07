@@ -24,15 +24,16 @@ const navigations: NavigationType[] = [
 	},
 ];
 
-const ProductPage = () => {
-	const categories = [
-		"all",
-		"lesson",
-		"work",
-		"project",
-		"training",
-	] as const;
+export const categories = [
+	"all",
+	"lesson",
+	"work",
+	"project",
+	"training",
+] as const;
 
+
+const ProductPage = () => {
 	const [currentCategory, setCurrentCategory] =
 		useState<(typeof categories)[number]>("all");
 
