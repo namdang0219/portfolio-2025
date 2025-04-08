@@ -6,7 +6,7 @@ const ProductList = ({ products }: { products: any[] }) => {
 	return (
 		<div className="grid grid-cols-2 gap-14">
 			{products.length > 0 &&
-				products.map((_, index) => <ProductItem key={index} />)}
+				products.map((item, index) => <ProductItem key={index} item={item} />)}
 		</div>
 	);
 };

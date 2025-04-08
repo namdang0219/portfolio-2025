@@ -130,7 +130,7 @@ export const skills: SkillType[] = [
 	},
 ];
 
-// export const allSkills = skills.map((s) => s.skillList).flatMap((list) => list);
+export const allSkills = skills.map((s) => s.skillList).flatMap((list) => list);
 
 export const skillNames = skills
 	.map((s) => s.skillList)

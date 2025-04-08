@@ -16,30 +16,59 @@ import React, {
 	useRef,
 	useState,
 } from "react";
-import { categories } from "../page";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { FaChevronLeft } from "react-icons/fa6";
 import { FaChevronRight } from "react-icons/fa";
+import { ProductType } from "@/types/ProductType";
+import { products } from "@/data/products";
+import styled from "styled-components";
+import SkillItem, { SkillDataType } from "@/components/item/SkillItem";
+import { allSkills } from "@/data/skills";
+
+const TableStyles = styled.div`
+	.table-container {
+		display: flex;
+		padding-block: 32px;
+		border-bottom: 1px solid #e2e8f0;
+	}
+	.table-title {
+		flex-shrink: 0;
+		color: #84b5c5;
+		width: 200px;
+		font-weight: 400;
+	}
+	.table-content {
+		flex: 1;
+	}
+`;
 
 const ProductDetailPage = () => {
 	const { productId } = useParams();
-	console.log("🚀 ~ ProductDetailPage ~ productId:", productId);
 
 	const [slideIndex, setSlideIndex] = useState<number>(0);
 	const sliderRef = useRef<Slider>(null);
 
-	const productData: ProductType = demo;
+	const productData = products.find(
+		(item) => item?.product_id === productId
+	) as ProductType;
 
 	const {
-		product_id,
 		title,
 		screenshots,
-		banner,
 		github,
-		category,
-		...renderTableDatas
+		description,
+		teamsize,
+		role,
+		feature,
+		demoVideos,
+		techs,
+		quiz,
+		learned,
+		when,
+		time,
+		link,
 	} = productData;
 
 	const settings = {
@@ -105,34 +134,139 @@ const ProductDetailPage = () => {
 					</div>
 				</div>
 
-				{/* <div className="relative aspect-[2/1] rounded-2xl overflow-hidden">
-					<Image
-						src={productData.banner}
-						alt="product-image"
-						fill
-						className="object-cover object-center w-full h-full"
-					/>
-				</div> */}
-
 				<div className="mt-6">
+					{/* top container  */}
 					<div>
 						<h2 className="text-2xl font-semibold tracking-widest">
-							{productData.title}
+							{title}
 						</h2>
 
+						{/* source code link */}
 						<div className="mt-4">
 							<span>Githubリンク：</span>
 							<Link
-								href={productData.github}
+								href={github}
 								target="_blank"
 								className="ml-2 hover:underline text-primary"
 							>
-								{productData.github}
+								{github}
 							</Link>
 						</div>
+
+						{/* demo site link */}
+						{link && (
+							<div className="mt-4">
+								<span>サイトリンク：</span>
+								<Link
+									href={link}
+									target="_blank"
+									className="ml-2 hover:underline text-primary"
+								>
+									{link}
+								</Link>
+							</div>
+						)}
+
+						<p className="mt-4 leading-loose text-justify text-gray-600 font-light">
+							{description}
+						</p>
 					</div>
 
-					<div className="mt-10">
+					{/* table field  */}
+					<TableStyles className="mt-10 font-light mb-[200px]">
+						{/* teamsize  */}
+						<div className="table-container">
+							<div className="table-title">チームサイズ</div>
+							<div className="table-content">{teamsize}</div>
+						</div>
+
+						{/* role */}
+						<div className="table-container">
+							<div className="table-title">担当</div>
+							<div className="table-content">{role}</div>
+						</div>
+
+						{/* feature */}
+						<div className="table-container">
+							<div className="table-title">機能</div>
+							<div className="table-content">
+								{feature.length > 0 &&
+									feature.map((f, idx) => (
+										<li key={idx}>{f}</li>
+									))}
+							</div>
+						</div>
+
+						{/* demovideos */}
+						<div className="table-container">
+							<div className="table-title">デモビデオ</div>
+							<div className="table-content">
+								{!demoVideos || demoVideos.length == 0 ? (
+									<div className="text-gray-300">
+										データがありません
+									</div>
+								) : (
+									<></>
+								)}
+							</div>
+						</div>
+
+						{/* techs */}
+						<div className="table-container">
+							<div className="table-title">テクニック</div>
+							<div className="table-content flex flex-wrap">
+								{techs.length > 0 &&
+									techs.map((t, idx) => {
+										const techData = allSkills.find(
+											(s) => s.name === t
+										);
+										return (
+											<SkillItem
+												key={idx}
+												canClick={false}
+												isLastItem={
+													idx === techs.length - 1
+												}
+												skillData={
+													techData as SkillDataType
+												}
+											/>
+										);
+									})}
+							</div>
+						</div>
+
+						{/* quiz */}
+						<div className="table-container">
+							<div className="table-title">チームサイズ</div>
+							<div className="table-content">{teamsize}</div>
+						</div>
+
+						{/* learned */}
+						<div className="table-container">
+							<div className="table-title">勉強になったこと</div>
+							<div className="table-content">
+								{learned.length > 0 &&
+									learned.map((l, idx) => (
+										<li key={idx}>{l}</li>
+									))}
+							</div>
+						</div>
+
+						{/* when */}
+						<div className="table-container">
+							<div className="table-title">実施時間</div>
+							<div className="table-content">{when}</div>
+						</div>
+
+						{/* time */}
+						<div className="table-container">
+							<div className="table-title">制作期間</div>
+							<div className="table-content">{time}</div>
+						</div>
+					</TableStyles>
+
+					{/* <div className="mt-10">
 						{Object.entries(renderTableDatas).map(
 							([key, value], idx) => (
 								<div
@@ -173,11 +307,11 @@ const ProductDetailPage = () => {
 								</div>
 							)
 						)}
-					</div>
+					</div> */}
 				</div>
 			</main>
 
-			<Spacer />
+			{/* <Spacer /> */}
 
 			<div>
 				<Footer />
@@ -205,55 +339,5 @@ const SliderButton: FC<
 		</div>
 	);
 };
-
-export type ProductType = {
-	product_id: string;
-	title: string;
-	category: (typeof categories)[number];
-	description: string;
-	feature: string[];
-	demoVides?: string[];
-	banner: string;
-	screenshots: string[];
-	github: string;
-	techs: string[]; // ['React', 'Next JS', 'Tailwind', 'Sass', 'Node JS', 'Firebase', 'MySQL', 'PHP', 'React Native', 'Expo', 'Github', 'Typescript', 'Redux Toolkit', 'VS Code', 'Figma', 'Illustrator', 'Photoshop']Ï
-	quiz: { question: string; answer: string }[];
-	learned: string[];
-	when: string; // format: ...年生・"前期" | "後期"
-	time: string; // format: ...ヶ月
-};
-
-const demo: ProductType = {
-	product_id: "1",
-	title: "モリモリ（写真編集アプリ）",
-	category: "lesson",
-	description: "lorem ipsum dolor sit amet, consectetur",
-	feature: ["featuer 1", "featuer 1", "featuer 1"],
-	demoVides: [
-		"https://www.youtube.com/embed/jxcSAXdgx7c?si=rIqYEvghR3FWzMNm&amp",
-		"https://www.youtube.com/embed/jxcSAXdgx7c?si=rIqYEvghR3FWzMNm&amp",
-	],
-	banner: "https://i.pinimg.com/736x/24/e3/c6/24e3c6f584da5b63dfb1132e9010a0fb.jpg",
-	screenshots: [
-		"https://i.pinimg.com/736x/24/e3/c6/24e3c6f584da5b63dfb1132e9010a0fb.jpg",
-		"https://i.pinimg.com/736x/43/89/49/4389493a6712dcdec289e4b8bd25f1e9.jpg",
-		"https://i.pinimg.com/736x/df/f8/91/dff891a8360a01fe2f73f537856e60fa.jpg",
-	],
-	github: "https://github.com/namdang0219",
-	techs: ["React", "Tailwind", "Sass"], // ['React', 'Next JS', 'Tailwind', 'Sass', 'Node JS', 'Firebase', 'MySQL', 'PHP', 'React Native', 'Expo', 'Github', 'Typescript', 'Redux Toolkit', 'VS Code', 'Figma', 'Illustrator', 'Photoshop']Ï
-	quiz: [
-		{
-			question: "How Can u know this question",
-			answer: "because i want to find this item",
-		},
-	],
-	learned: ["Learned 1", "Learned 2"],
-	when: "１年生・前期", // format: ...年生・"前期" | "後期"
-	time: "２ヶ月", // format: ...ヶ月
-};
-
-const products: ProductType[] = [
-	
-]
 
 export default ProductDetailPage;

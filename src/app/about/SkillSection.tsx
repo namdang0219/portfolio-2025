@@ -1,3 +1,4 @@
+import SkillItem from "@/components/item/SkillItem";
 import SectionTitle from "@/components/SectionTitle";
 import { skills } from "@/data/skills";
 import { SkillType } from "@/types/SkillType";
@@ -15,7 +16,7 @@ const SkillSection = () => {
 						<SkillListItem
 							skillData={s}
 							isLastItem={index === skills.length - 1}
-						/>	
+						/>
 					</Fragment>
 				))}
 			</div>
@@ -79,28 +80,5 @@ const SkillListItem = ({
 	);
 };
 
-const SkillItem = ({
-	skillData,
-	isLastItem,
-}: {
-	skillData: SkillType["skillList"][number];
-	isLastItem: boolean;
-}) => {
-	return (
-		<div className="flex items-center select-none">
-			<div className="flex items-center gap-1.5 transition-all hover:bg-slate-100 rounded-lg cursor-pointer px-3 py-1">
-				<span className="text-[30px] leading-none mt-1">
-					{skillData.icon}
-				</span>
-				<span className="text-lg font-light">{skillData.name}</span>
-			</div>
-			{!isLastItem && (
-				<span className="mx-2 font-thin text-slate-600 text-2xl leading-none -mt-0.5">
-					/
-				</span>
-			)}
-		</div>
-	);
-};
 
 export default SkillSection;

@@ -2,6 +2,7 @@ import Button from "@/components/Button";
 import ProductList from "@/components/list/ProductList";
 import Magnet from "@/components/Magnet";
 import SectionTitle from "@/components/SectionTitle";
+import { products } from "@/data/products";
 import React from "react";
 
 const ProductSection = () => {
@@ -10,7 +11,7 @@ const ProductSection = () => {
 			<SectionTitle title="作成したもの" subTitle="Product" />
 
 			{/* product list  */}
-			<ProductList products={Array(4).fill(null)} />
+			<ProductList products={products} />
 
 			<div className="mt-24 flex justify-center">
 				<Magnet>
