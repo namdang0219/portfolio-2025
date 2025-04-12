@@ -4,8 +4,8 @@ export const myMovies: ProductType = {
 	product_id: "20240320",
     teamsize: '1人',
     role: 'coding & design',
-	title: "My Movies",
-	category: "project",
+	title: "My Movies | 映画情報検索サイト",
+	category: "self_project",
 	description:
 		"My Moviesは、The Movie DBの無料APIを利用したプロジェクトで、ユーザーが話題の映画、現在上映中の映画、そして近日公開予定の映画を検索できるアプリです。ユーザーはアカウントを作成し、ログインすることで、お気に入りの映画を保存し、時間のあるときに見返すことができます。",
 	feature: [

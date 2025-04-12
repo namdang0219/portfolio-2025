@@ -7,6 +7,7 @@ import SectionTitle from "@/components/SectionTitle";
 import Footer from "@/module/Footer";
 import HeaderLogo from "@/module/HeaderLogo";
 import { NavigationType } from "@/types/NavigationType";
+import { product_categories } from "@/types/ProductType";
 import React, { useState } from "react";
 
 const navigations: NavigationType[] = [
@@ -24,30 +25,23 @@ const navigations: NavigationType[] = [
 	},
 ];
 
-export const categories = [
-	"all",
-	"lesson",
-	"work",
-	"project",
-	"training",
-] as const;
-
-
 const ProductPage = () => {
 	const [currentCategory, setCurrentCategory] =
-		useState<(typeof categories)[number]>("all");
+		useState<(typeof product_categories)[number]>("all");
 
-	const renderCategoryContent = (category: string) => {
+	const renderCategoryContent = (
+		category: (typeof product_categories)[number]
+	) => {
 		switch (category) {
 			case "all":
 				return "すべて";
-			case "lesson":
+			case "school_lesson":
 				return "学校の授業";
-			case "work":
+			case "school_work":
 				return "学校の作品";
-			case "project":
+			case "self_project":
 				return "自分の作品";
-			case "training":
+			case "self_training":
 				return "自分の練習";
 
 			default:
@@ -64,7 +58,7 @@ const ProductPage = () => {
 				<div className="pt-[100px] container relative">
 					{/* pick category  */}
 					<div className="flex items-center gap-2 fixed left-1/2 -translate-x-1/2 top-12 px-4 rounded-full z-10 w-fit bg-background bg-opacity-40 backdrop-blur-xl py-2">
-						{categories.map((c, idx) => (
+						{product_categories.map((c, idx) => (
 							<button
 								key={idx}
 								onClick={() => setCurrentCategory(c)}

@@ -3,7 +3,6 @@
 "use client";
 
 import SectionTitle from "@/components/SectionTitle";
-import Spacer from "@/components/Spacer";
 import Footer from "@/module/Footer";
 import HeaderLogo from "@/module/HeaderLogo";
 import Image from "next/image";
@@ -41,6 +40,7 @@ const TableStyles = styled.div`
 	}
 	.table-content {
 		flex: 1;
+		line-height: 1.8em
 	}
 `;
 
@@ -90,7 +90,7 @@ const ProductDetailPage = () => {
 				<SectionTitle
 					title="作品の詳細"
 					subTitle="Product Detail"
-					containerClassName="mb-8"
+					containerClassName="mb-4"
 				/>
 
 				<div className="relative overflow-hidden bg-cyan-500 rounded-2xl group aspect-[2/1]">
@@ -143,7 +143,7 @@ const ProductDetailPage = () => {
 
 						{/* source code link */}
 						<div className="mt-4">
-							<span>Githubリンク：</span>
+							<span>👉🏻 Githubリンク：</span>
 							<Link
 								href={github}
 								target="_blank"
@@ -156,7 +156,7 @@ const ProductDetailPage = () => {
 						{/* demo site link */}
 						{link && (
 							<div className="mt-4">
-								<span>サイトリンク：</span>
+								<span>🌍 サイトリンク：</span>
 								<Link
 									href={link}
 									target="_blank"
@@ -175,143 +175,125 @@ const ProductDetailPage = () => {
 					{/* table field  */}
 					<TableStyles className="mt-10 font-light mb-[200px]">
 						{/* teamsize  */}
-						<div className="table-container">
-							<div className="table-title">チームサイズ</div>
-							<div className="table-content">{teamsize}</div>
-						</div>
+						{teamsize && (
+							<div className="table-container">
+								<div className="table-title">チームサイズ</div>
+								<div className="table-content">{teamsize}</div>
+							</div>
+						)}
 
 						{/* role */}
-						<div className="table-container">
-							<div className="table-title">担当</div>
-							<div className="table-content">{role}</div>
-						</div>
+						{role && (
+							<div className="table-container">
+								<div className="table-title">担当</div>
+								<div className="table-content">{role}</div>
+							</div>
+						)}
 
 						{/* feature */}
-						<div className="table-container">
-							<div className="table-title">機能</div>
-							<div className="table-content">
-								{feature.length > 0 &&
-									feature.map((f, idx) => (
-										<li key={idx}>{f}</li>
-									))}
+						{feature && (
+							<div className="table-container">
+								<div className="table-title">機能</div>
+								<div className="table-content">
+									{feature.length > 0 &&
+										feature.map((f, idx) => (
+											<li key={idx}>{f}</li>
+										))}
+								</div>
 							</div>
-						</div>
+						)}
 
 						{/* demovideos */}
-						<div className="table-container">
-							<div className="table-title">デモビデオ</div>
-							<div className="table-content">
-								{!demoVideos || demoVideos.length == 0 ? (
-									<div className="text-gray-300">
-										データがありません
-									</div>
-								) : (
-									<></>
-								)}
+						{demoVideos && demoVideos?.length > 0 && (
+							<div className="table-container">
+								<div className="table-title">デモビデオ</div>
+								<div className="table-content">
+									{!demoVideos || demoVideos.length == 0 ? (
+										<div className="text-gray-300">
+											データがありません
+										</div>
+									) : (
+										<></>
+									)}
+								</div>
 							</div>
-						</div>
+						)}
 
 						{/* techs */}
-						<div className="table-container">
-							<div className="table-title">テクニック</div>
-							<div className="table-content flex flex-wrap">
-								{techs.length > 0 &&
-									techs.map((t, idx) => {
-										const techData = allSkills.find(
-											(s) => s.name === t
-										);
-										return (
-											<SkillItem
-												key={idx}
-												canClick={false}
-												isLastItem={
-													idx === techs.length - 1
-												}
-												skillData={
-													techData as SkillDataType
-												}
-											/>
-										);
-									})}
+						{techs && (
+							<div className="table-container">
+								<div className="table-title">テクニック</div>
+								<div className="table-content flex flex-wrap gap-y-2">
+									{techs.length > 0 &&
+										techs.map((t, idx) => {
+											const techData = allSkills.find(
+												(s) => s.name === t
+											);
+											return (
+												<SkillItem
+													key={idx}
+													canClick={false}
+													isLastItem={
+														idx === techs.length - 1
+													}
+													skillData={
+														techData as SkillDataType
+													}
+												/>
+											);
+										})}
+								</div>
 							</div>
-						</div>
+						)}
 
 						{/* quiz */}
-						<div className="table-container">
-							<div className="table-title">チームサイズ</div>
-							<div className="table-content">{teamsize}</div>
-						</div>
+						{quiz && quiz.length > 0 && (
+							<div className="table-container">
+								<div className="table-title">困ったこと</div>
+								<div className="table-content">
+									{quiz.map((q, idx) => (
+										<div key={idx}>
+											<p>Q: {q?.question}</p>
+											<p>A: {q?.answer}</p>
+										</div>
+									))}
+								</div>
+							</div>
+						)}
 
 						{/* learned */}
-						<div className="table-container">
-							<div className="table-title">勉強になったこと</div>
-							<div className="table-content">
-								{learned.length > 0 &&
-									learned.map((l, idx) => (
-										<li key={idx}>{l}</li>
-									))}
+						{learned && (
+							<div className="table-container">
+								<div className="table-title">
+									勉強になったこと
+								</div>
+								<div className="table-content">
+									{learned.length > 0 &&
+										learned.map((l, idx) => (
+											<li key={idx} className="text-justify">{l}</li>
+										))}
+								</div>
 							</div>
-						</div>
+						)}
 
 						{/* when */}
-						<div className="table-container">
-							<div className="table-title">実施時間</div>
-							<div className="table-content">{when}</div>
-						</div>
+						{when && (
+							<div className="table-container">
+								<div className="table-title">実施時間</div>
+								<div className="table-content">{when}</div>
+							</div>
+						)}
 
 						{/* time */}
-						<div className="table-container">
-							<div className="table-title">制作期間</div>
-							<div className="table-content">{time}</div>
-						</div>
-					</TableStyles>
-
-					{/* <div className="mt-10">
-						{Object.entries(renderTableDatas).map(
-							([key, value], idx) => (
-								<div
-									key={idx}
-									className={`flex py-8 border-b ${
-										idx ===
-										Object.entries(renderTableDatas)
-											.length -
-											1
-											? "border-b-transparent"
-											: "border-b-slate-200"
-									}`}
-								>
-									<div className="text-primary w-[200px] shrink-0">
-										{key}
-									</div>
-									<div className="flex-1">
-										{Array.isArray(value) ? (
-											typeof value[0] === "object" ? (
-												<ul>
-													{value.map((v: any, i) => (
-														<li
-															key={i}
-														>{`Q: ${v.question} => A: ${v.answer}`}</li>
-													))}
-												</ul>
-											) : (
-												<ul>
-													{value.map((v: any, i) => (
-														<li key={i}>{v}</li>
-													))}
-												</ul>
-											)
-										) : (
-											value
-										)}
-									</div>
-								</div>
-							)
+						{time && (
+							<div className="table-container">
+								<div className="table-title">制作期間</div>
+								<div className="table-content">{time}</div>
+							</div>
 						)}
-					</div> */}
+					</TableStyles>
 				</div>
 			</main>
-
-			{/* <Spacer /> */}
 
 			<div>
 				<Footer />

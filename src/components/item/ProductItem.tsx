@@ -31,7 +31,7 @@ const ProductItem = ({ item }: { item: ProductType }) => {
 					<span className="mr-4 font-light text-primary">
 						{item?.teamsize === "1人"
 							? "個人制作"
-							: `${item?.teamsize}のチーム制作}`}
+							: `${item?.teamsize}のチーム制作`}
 					</span>
 					<span className="text-gray-400 font-extralight">
 						{item?.role}
