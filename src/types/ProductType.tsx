@@ -10,6 +10,7 @@ export type ProductType = {
 	product_id: string;
 	teamsize: "1人" | "2人" | "3人" | "4人";
 	role: "coding" | "design" | "coding & design";
+	contributions?: string[]
 	title: string;
 	category: (typeof product_categories)[number];
 	description: string;

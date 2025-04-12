@@ -40,7 +40,7 @@ const TableStyles = styled.div`
 	}
 	.table-content {
 		flex: 1;
-		line-height: 1.8em
+		line-height: 1.8em;
 	}
 `;
 
@@ -61,6 +61,7 @@ const ProductDetailPage = () => {
 		description,
 		teamsize,
 		role,
+		contributions,
 		feature,
 		demoVideos,
 		techs,
@@ -190,6 +191,26 @@ const ProductDetailPage = () => {
 							</div>
 						)}
 
+						{/* contributions */}
+						{contributions && contributions.length > 0 && (
+							<div className="table-container">
+								<div className="table-title">
+									やったこと
+								</div>
+								<div className="table-content">
+									{contributions.length > 0 &&
+										contributions.map((c, idx) => (
+											<li
+												key={idx}
+												className="text-justify"
+											>
+												{c}
+											</li>
+										))}
+								</div>
+							</div>
+						)}
+
 						{/* feature */}
 						{feature && (
 							<div className="table-container">
@@ -270,7 +291,12 @@ const ProductDetailPage = () => {
 								<div className="table-content">
 									{learned.length > 0 &&
 										learned.map((l, idx) => (
-											<li key={idx} className="text-justify">{l}</li>
+											<li
+												key={idx}
+												className="text-justify"
+											>
+												{l}
+											</li>
 										))}
 								</div>
 							</div>

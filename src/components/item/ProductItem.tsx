@@ -38,7 +38,7 @@ const ProductItem = ({ item }: { item: ProductType }) => {
 					</span>
 				</div>
 
-				<p className="text-lg font-medium transition-all text-slate-700 w-fit">
+				<p className="text-lg font-medium transition-all leading-relaxed text-slate-700 w-fit">
 					{item?.title}
 				</p>
 
