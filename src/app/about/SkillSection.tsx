@@ -2,8 +2,7 @@ import SkillItem from "@/components/item/SkillItem";
 import SectionTitle from "@/components/SectionTitle";
 import { skills } from "@/data/skills";
 import { SkillType } from "@/types/SkillType";
-import React, { Fragment, useState } from "react";
-import { useCollapse } from "react-collapsed";
+import React, { Fragment } from "react";
 
 const SkillSection = () => {
 	return (
@@ -31,8 +30,8 @@ const SkillListItem = ({
 	skillData: SkillType;
 	isLastItem: boolean;
 }) => {
-	const [isExpanded, setExpanded] = useState<boolean>(false);
-	const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
+	// const [isExpanded, setExpanded] = useState<boolean>(false);
+	// const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
 
 	return (
 		<div
@@ -48,15 +47,16 @@ const SkillListItem = ({
 					{skillData.skillList.map((item, idx) => (
 						<div
 							key={idx}
-							{...getToggleProps({
-								onClick: () =>
-									setExpanded(
-										(prevExpanded) => !prevExpanded
-									),
-							})}
+							// {...getToggleProps({
+							// 	onClick: () =>
+							// 		setExpanded(
+							// 			(prevExpanded) => !prevExpanded
+							// 		),
+							// })}
 						>
 							<SkillItem
 								skillData={item}
+								canClick={false}
 								isLastItem={
 									idx === skillData.skillList.length - 1
 								}
@@ -65,7 +65,7 @@ const SkillListItem = ({
 					))}
 				</div>
 
-				<div
+				{/* <div
 					{...getCollapseProps()}
 					className={`px-2 transition-all delay-300 ${
 						isExpanded ? "mt-2" : "mt-0"
@@ -74,11 +74,10 @@ const SkillListItem = ({
 					Lorem ipsum dolor, sit amet consectetur adipisicing elit.
 					Tempora omnis temporibus aliquam laudantium quo distinctio
 					voluptate tenetur. Ducimus, eligendi molestias.
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);
 };
-
 
 export default SkillSection;

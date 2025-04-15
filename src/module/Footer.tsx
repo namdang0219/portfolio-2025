@@ -66,7 +66,11 @@ const Footer = () => {
 								color={colors.primary}
 								className="scale-100 hover:scale-110 transition-all duration-300"
 							>
-								<Link href={s.href} className="block">
+								<Link
+									href={s.href}
+									className="block"
+									target="_blank"
+								>
 									<div className="w-14 aspect-square rounded-full flex items-center justify-center border border-primary hover:bg-primary text-primary hover:text-white bg-white">
 										{s.icon}
 									</div>
@@ -87,12 +91,12 @@ const socials: { label: string; icon: ReactNode; href: string }[] = [
 	{
 		label: "Github",
 		icon: <FaGithub size={28} />,
-		href: "/#about",
+		href: "https://github.com/namdang0219",
 	},
 	{
 		label: "Facebook",
 		icon: <GrFacebookOption size={28} />,
-		href: "/#about",
+		href: "https://www.facebook.com/namdangg1902",
 	},
 ];
 

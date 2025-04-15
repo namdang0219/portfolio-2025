@@ -94,7 +94,7 @@ const ProductDetailPage = () => {
 					containerClassName="mb-4"
 				/>
 
-				<div className="relative overflow-hidden bg-cyan-500 rounded-2xl group aspect-[2/1]">
+				<div className="relative overflow-hidden bg-gray-200 rounded-2xl group aspect-[2/1]">
 					<Slider
 						ref={sliderRef}
 						{...settings}
