@@ -1,5 +1,8 @@
+"use client";
+
 import Button from "@/components/Button";
 import Image from "next/image";
+import Link from "next/link";
 import React, { FC } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 
@@ -9,10 +12,13 @@ type HeaderLogoProps = {
 
 const HeaderLogo: FC<HeaderLogoProps> = ({ canGoBack }) => {
 	return (
-		<div className="flex gap-2 items-center h-fit fixed left-10 top-10 z-50">
+		<div className="h-fit fixed left-10 top-10 z-50">
 			{!canGoBack ? (
-				<>
-					<div className="relative w-[72px] h-fit aspect-square">
+				<Link
+					className="flex gap-2 items-center cursor-pointer"
+					href={"#"}
+				>
+					<div className="relative w-[64px] h-fit aspect-square">
 						<Image
 							src="/logo.png"
 							alt="logo"
@@ -22,18 +28,14 @@ const HeaderLogo: FC<HeaderLogoProps> = ({ canGoBack }) => {
 							className="w-full h-full object-center object-contain"
 						/>
 					</div>
-					<div className="uppercase font-light">
-						nam
+					<div className="uppercase tracking-widest font-serif text-sm font-light">
+						nam dang
 						<br />
-						dang
+						portfolio
 					</div>
-				</>
+				</Link>
 			) : (
-				<Button
-					text="戻る"
-					icon={<BsArrowLeft size={28} />}
-					href="/"
-				/>
+				<Button text="戻る" icon={<BsArrowLeft size={28} />} href="/" />
 			)}
 		</div>
 	);

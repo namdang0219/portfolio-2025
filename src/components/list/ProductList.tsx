@@ -5,8 +5,8 @@ import ProductItem from "../item/ProductItem";
 const ProductList = ({ products }: { products: any[] }) => {
 	return (
 		<div className="grid grid-cols-2 gap-14">
-			{products.length > 0 &&
-				products.map((item, index) => <ProductItem key={index} item={item} />)}
+			{products.length > 0 ?
+				products.map((item, index) => <ProductItem key={index} item={item} />) : <div className="text-gray-400">データがまだありません。</div>}
 		</div>
 	);
 };

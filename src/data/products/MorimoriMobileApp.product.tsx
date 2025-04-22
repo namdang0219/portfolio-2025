@@ -4,6 +4,7 @@ export const morimoriMobileApp: ProductType = {
 	product_id: "20250210",
 	teamsize: "4人",
 	role: "coding & design",
+	type: "mobile",
 	contributions: [
 		"アプリ内の各画面のUIデザインに参加しました。",
 		"アプリ内のUI実装および、ルーティング（画面遷移）の構築を担当しました。",

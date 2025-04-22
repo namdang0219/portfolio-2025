@@ -6,6 +6,7 @@ export const rekiteku: ProductType = {
 	role: "coding & design",
 	title: "Rekiteku | 福岡歴史ツアー管理",
 	category: "school_work",
+	type: "frontend",
 	description:
 		"Rekiteku（レキテク）は、福岡県の観光ツアーに関する情報サイトであり、ユーザーは各観光地の情報や、それに関連するツアーを調べることができます。私は、サイト管理者向けの管理画面の制作を担当しました。管理者はこの管理画面を通じて、公式サイトに掲載される各コンテンツの追加・編集を行うことができます。",
 	feature: [

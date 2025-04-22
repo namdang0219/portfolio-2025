@@ -268,7 +268,7 @@ const ProductDetailPage = () => {
 						)}
 
 						{/* quiz */}
-						{quiz && quiz.length > 0 && (
+						{/* {quiz && quiz.length > 0 && (
 							<div className="table-container">
 								<div className="table-title">困ったこと</div>
 								<div className="table-content">
@@ -280,7 +280,7 @@ const ProductDetailPage = () => {
 									))}
 								</div>
 							</div>
-						)}
+						)} */}
 
 						{/* learned */}
 						{learned && (

@@ -8,7 +8,7 @@ import Navigations from "@/components/Navigations";
 
 const HomePage = () => {
 	return (
-		<div className="relative">
+		<div id="#" className="relative">
 			{/* topbar - ele is fixed  */}
 			<HeaderLogo />
 			<Navigations navigations={navigations} />

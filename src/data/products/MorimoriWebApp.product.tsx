@@ -13,6 +13,7 @@ export const morimoriWebApp: ProductType = {
 	],
 	title: "Morimori Web App | 写真共有アルバムウェブアプリ",
 	category: "school_work",
+	type: "frontend",
 	description:
 		"Morimori Webアプリは、16〜30歳の若者を対象としたウェブアプリです。このアプリのコンセプトは、友達と一緒に共有アルバムを作成し、遊びに行った時の写真やグループ写真を一つのアルバムにアップロードして思い出を共有・保存できるというものです。さらに、ユーザー同士で写真を共同編集し、ステッカーやメモを追加して思い出をより楽しく残すことができます。また、React Nativeで開発されたモバイル版では、写真撮影機能も備えており、リアルタイムでステッカーの追加や簡単な編集が可能です。",
 	feature: [

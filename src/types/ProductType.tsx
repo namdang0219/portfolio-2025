@@ -9,8 +9,9 @@ export const product_categories = [
 export type ProductType = {
 	product_id: string;
 	teamsize: "1人" | "2人" | "3人" | "4人";
+	type: "frontend" | "backend" | "mobile";
 	role: "coding" | "design" | "coding & design";
-	contributions?: string[]
+	contributions?: string[];
 	title: string;
 	category: (typeof product_categories)[number];
 	description: string;
