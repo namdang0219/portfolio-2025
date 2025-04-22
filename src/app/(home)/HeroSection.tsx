@@ -14,17 +14,25 @@ const HeroSection = () => {
 			className="h-screen flex items-center justify-center flex-col relative"
 		>
 			{/* image  */}
-			<div className="relative">
+			<div className="relative rounded-3xl overflow-hidden group">
 				{/* <Image /> */}
-				<div className="relative header-img-container rounded-3xl overflow-hidden group scale-100 hover:scale-105 transition-all duration-500">
+				<div className="relative rounded-3xl header-img-container overflow-hidden group scale-100 group-hover:scale-105 transition-all duration-500">
 					<Image
-						src={
-							"https://i.pinimg.com/736x/61/5e/bf/615ebf942af03e4e0ffb80224c5f17a1.jpg"
-						}
+						src={"/assets/homePage/header.jpg"}
 						alt="header-banner"
 						fill
 						className="w-full h-full object-center object-cover scale-105 group-hover:scale-100 transition-all duration-700"
 					/>
+				</div>
+
+				<div className="absolute group-hover:opacity-100 duration-500 transition-all opacity-0 bg-opacity-10 inset-0 bg-black flex items-center justify-center">
+					<Magnet>
+						<Button
+							href="/#about"
+							text="私について"
+							containerClassName="origin-left"
+						/>
+					</Magnet>
 				</div>
 			</div>
 

@@ -14,11 +14,13 @@ export const myMovies: ProductType = {
 	],
 	demoVideos: [],
 	link: "https://browse-movies-alpha.vercel.app/",
-	banner: "https://i.pinimg.com/736x/2a/a0/0a/2aa00a539b20e04989e7e008e3864348.jpg",
+	banner: "/assets/products/myMovies/banner.jpg",
 	screenshots: [
-		"https://i.pinimg.com/736x/82/ef/e9/82efe9cbbd0916a9bdea45d3017b337e.jpg",
-		"https://i.pinimg.com/736x/eb/0e/f1/eb0ef1e19909cb675c9e155739cf2a6d.jpg",
-		"https://i.pinimg.com/736x/3d/39/18/3d391869d746ed4309a14f5d2c5eaf87.jpg",
+		"/assets/products/myMovies/image00.jpg",
+		"/assets/products/myMovies/image01.jpg",
+		"/assets/products/myMovies/image02.jpg",
+		"/assets/products/myMovies/image03.jpg",
+		"/assets/products/myMovies/image04.jpg",
 	],
 	github: "https://github.com/namdang0219/browse-movies",
 	techs: ["React", "Tailwind", "Redux Toolkit", "Typescript", "Firebase"], // ['React', 'Next JS', 'Tailwind', 'Sass', 'Node JS', 'Firebase', 'MySQL', 'PHP', 'React Native', 'Expo', 'Github', 'Typescript', 'Redux Toolkit', 'VS Code', 'Figma', 'Illustrator', 'Photoshop']

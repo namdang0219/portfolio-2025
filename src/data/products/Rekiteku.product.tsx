@@ -14,14 +14,15 @@ export const rekiteku: ProductType = {
 	],
 	demoVideos: [],
 	link: "https://reki-teku.vercel.app/manager/home",
-	banner: "https://i.pinimg.com/736x/a8/d4/8a/a8d48a4aee0b62d3a7425545628cd7e8.jpg",
+	banner: "/assets/products/rekiteku/banner.jpg",
 	screenshots: [
-		"https://i.pinimg.com/736x/11/03/be/1103bed792d0857ecc94b0af928195ab.jpg",
-		"https://i.pinimg.com/736x/75/77/ce/7577ce4c47ed96045f6ad801010d128a.jpg",
-		"https://i.pinimg.com/736x/72/e4/43/72e44366914d903a2fdad1914b37c72e.jpg",
+		"/assets/products/rekiteku/image00.jpg",
+		"/assets/products/rekiteku/image01.jpg",
+		"/assets/products/rekiteku/image02.jpg",
+		"/assets/products/rekiteku/image03.jpg",
 	],
 	github: "https://github.com/namdang0219/team_reactors",
-	techs: ["React", "Tailwind", "Firebase", 'Github'], // ['React', 'Next JS', 'Tailwind', 'Sass', 'Node JS', 'Firebase', 'MySQL', 'PHP', 'React Native', 'Expo', 'Github', 'Typescript', 'Redux Toolkit', 'VS Code', 'Figma', 'Illustrator', 'Photoshop']
+	techs: ["React", "Tailwind", "Firebase", "Github"], // ['React', 'Next JS', 'Tailwind', 'Sass', 'Node JS', 'Firebase', 'MySQL', 'PHP', 'React Native', 'Expo', 'Github', 'Typescript', 'Redux Toolkit', 'VS Code', 'Figma', 'Illustrator', 'Photoshop']
 	quiz: [{ question: "", answer: "string" }],
 	learned: [
 		"Google Apps Scriptの基本的な使い方を学びました。最初はGoogle Sheetsをデータベースとして、Google Driveをストレージとして利用する方法を試しました（ただし、CORSのエラーによりデプロイに失敗したため、Firebaseの使用に切り替えました）。",

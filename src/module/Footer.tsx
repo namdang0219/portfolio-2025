@@ -11,7 +11,7 @@ import { colors } from "@/utils/colors";
 const Footer = () => {
 	return (
 		<>
-			<div className="py-16 mt-10 flex bg-cyan-50">
+			<div className="py-16 mt-10 flex bg-cyan-100">
 				<div className="flex-1 flex items-center container justify-center flex-col">
 					{/* <div className="relative w-[120px] aspect-square mb-4">
 						<Image
@@ -24,7 +24,7 @@ const Footer = () => {
 
 					<TiltedCard
 						imageSrc="/logo.png"
-						altText="Kendrick Lamar - GNX Album Cover"
+						altText="My portfolio 🍓"
 						captionText="Welcome to my portfolio ! 🙋🏻‍♂️"
 						containerHeight="200px"
 						containerWidth="200px"
