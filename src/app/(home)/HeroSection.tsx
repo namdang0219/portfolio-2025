@@ -11,12 +11,12 @@ const HeroSection = () => {
 	return (
 		<div
 			id="top"
-			className="h-screen flex items-center justify-center flex-col relative"
+			className="h-screen sm:h-auto flex items-center justify-center flex-col relative"
 		>
 			{/* image  */}
 			<div className="relative rounded-3xl overflow-hidden group">
 				{/* <Image /> */}
-				<div className="relative rounded-3xl header-img-container overflow-hidden group scale-100 group-hover:scale-105 transition-all duration-500">
+				<div className="relative rounded-3xl scale-100 aspect-[2/1] header-img-container overflow-hidden group group-hover:scale-105 transition-all duration-500">
 					<Image
 						src={"/assets/homePage/header.jpg"}
 						alt="header-banner"
@@ -25,7 +25,7 @@ const HeroSection = () => {
 					/>
 				</div>
 
-				<div className="absolute group-hover:opacity-100 duration-500 transition-all opacity-0 bg-opacity-10 inset-0 bg-black flex items-center justify-center">
+				<div className="absolute sm:hidden group-hover:opacity-100 duration-500 transition-all opacity-0 bg-opacity-10 inset-0 bg-black flex items-center justify-center">
 					<Magnet>
 						<Button
 							href="/#about"
@@ -38,7 +38,7 @@ const HeroSection = () => {
 
 			{/* large text  */}
 			<p
-				className={`text-[150px] ${TOKAngleFont.className} flex items-center gap-2 -mt-6`}
+				className={`text-[150px] sm:text-[60px] ${TOKAngleFont.className} flex items-center gap-2 -mt-6`}
 			>
 				<span>ナム</span>
 				<span className="mt-5">
@@ -46,6 +46,7 @@ const HeroSection = () => {
 						src="/no-moji.png"
 						width={50}
 						height={50}
+						className="sm:scale-50 sm:-mt-3"
 						alt="no-moji"
 					/>
 				</span>
@@ -54,7 +55,7 @@ const HeroSection = () => {
 			</p>
 			{/* sub text  */}
 			<div className="flex flex-col items-center -mt-6">
-				<div className="flex items-center gap-4">
+				<div className="flex items-center gap-4 sm:flex-col">
 					<p className="text-xl font-extralight text-slate-800">
 						Frontend Engineer with
 					</p>

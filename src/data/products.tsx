@@ -7,6 +7,6 @@ import { morimoriMobileApp } from "./products/MorimoriMobileApp.product";
 export const products: ProductType[] = [
 	myMovies,
 	rekiteku,
-	morimoriMobileApp,
-	morimoriWebApp,
+	// morimoriMobileApp,
+	// morimoriWebApp,
 ];

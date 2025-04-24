@@ -11,7 +11,7 @@ import { colors } from "@/utils/colors";
 const Footer = () => {
 	return (
 		<>
-			<div className="py-16 mt-10 flex bg-cyan-100">
+			<div className="py-16 mt-10 flex bg-[#f7f5df] bg-opacity-70">
 				<div className="flex-1 flex items-center container justify-center flex-col">
 					{/* <div className="relative w-[120px] aspect-square mb-4">
 						<Image

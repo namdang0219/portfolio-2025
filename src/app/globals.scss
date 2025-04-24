@@ -15,7 +15,7 @@
 
 @layer components {
 	.container {
-		@apply w-full max-w-[1080px] px-10 mx-auto;
+		@apply w-full max-w-[1080px] px-10 mx-auto sm:px-4;
 	}
 }
 
@@ -59,7 +59,7 @@
 }
 
 .header-img-container {
-	height: 400px;
+	// height: 400px;
 	animation: headerImgAnim 5s forwards ease-in-out;
 }
 

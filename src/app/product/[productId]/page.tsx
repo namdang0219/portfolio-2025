@@ -42,6 +42,12 @@ const TableStyles = styled.div`
 		flex: 1;
 		line-height: 1.8em;
 	}
+	@media only screen and (max-width: 639px) {
+		.table-container {
+			flex-direction: column;
+			gap: 20px;
+		}
+	}
 `;
 
 const ProductDetailPage = () => {
@@ -194,9 +200,7 @@ const ProductDetailPage = () => {
 						{/* contributions */}
 						{contributions && contributions.length > 0 && (
 							<div className="table-container">
-								<div className="table-title">
-									やったこと
-								</div>
+								<div className="table-title">やったこと</div>
 								<div className="table-content">
 									{contributions.length > 0 &&
 										contributions.map((c, idx) => (
