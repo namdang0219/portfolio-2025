@@ -3,7 +3,7 @@ import React from "react";
 
 const Topbar = () => {
 	return (
-		<div className="w-screen flex items-center justify-between p-4 bg-white bg-opacity-80 backdrop-blur-xl">
+		<div className="w-screen flex items-center justify-between py-5 px-8 bg-white bg-opacity-80 backdrop-blur-md">
 			<div className="text-2xl font-bold">Portfolio 🐶</div>
 
 			<div className="flex items-center gap-10">

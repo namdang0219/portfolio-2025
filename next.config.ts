@@ -30,6 +30,10 @@ const nextConfig: NextConfig = {
 				protocol: "https",
 				hostname: "img.shields.io",
 			},
+			{
+				protocol: "https",
+				hostname: "cdn-icons-png.flaticon.com",
+			},
 		],
 	},
 };
