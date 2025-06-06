@@ -1,3 +1,4 @@
+import RevealOnScroll from "@/components/RevealOnScroll";
 import Image from "next/image";
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
@@ -121,61 +122,74 @@ const HomeHeader = () => {
 
 	return (
 		<div className="p-5 scroll-m-24">
-			<div className="bg-blue-400 rounded-3xl p-10 flex items-center justify-between gap-28">
+			<div className="bg-blue-400 overflow-hidden rounded-3xl p-10 flex items-center justify-between gap-28">
 				<div className="flex flex-col gap-8">
-					<p className="text-4xl font-semibold text-white">
-						私のポートフォリオへようこそ！ 🐶
-					</p>
+					<RevealOnScroll>
+						<p className="text-4xl font-semibold text-white">
+							私のポートフォリオへようこそ！ 🐶
+						</p>
+					</RevealOnScroll>
 
-					<p className="text-xl text-white leading-8 tracking-wider">
-						こんにちは、ナムと申します。
-						<br />
-						現在、ECCコンピュータ専門学校で学びながら、フロントエンド兼Web・アプリデザイナーを目指しています。
-						また、より完成度の高い作品を作るために、バックエンドも自分で勉強中です。
-					</p>
+					<RevealOnScroll delay={0.4}>
+						<p className="text-xl text-white leading-8 tracking-wider">
+							こんにちは、ナムと申します。
+							<br />
+							現在、ECCコンピュータ専門学校で学びながら、フロントエンド兼Web・アプリデザイナーを目指しています。
+							また、より完成度の高い作品を作るために、バックエンドも自分で勉強中です。
+						</p>
+					</RevealOnScroll>
 
-					<div className="flex items-center gap-6">
-						<button className="px-8 py-4 flex group items-center gap-1 rounded-lg bg-white text-blue-500 transition-all duration-300 hover:scale-105">
-							<span className="font-medium">作品を見る</span>
-							<span className="-mx-3 opacity-0 transition-all group-hover:opacity-100 group-hover:mx-0">
-								<FiArrowRight size={20} />
-							</span>
-						</button>
-					</div>
-
-					<div className="flex flex-col gap-4">
-						{/* <p className="text-2xl text-white">{`🧑🏻‍💻 Frontend Developer | Web & App Designer using`}</p> */}
-						<div className="flex items-center gap-4">
-							{[
-								"react",
-								"typescrip",
-								"react native",
-								"firebase",
-								"swift",
-							].map((item, index) => (
-								<div
-									key={index}
-									className="bg-white rounded-2xl w-16 h-16 flex items-center justify-center"
-								>
-									<span className="scale-105">
-										{renderTechItem(item)}
-									</span>
-								</div>
-							))}
+					<RevealOnScroll delay={0.4}>
+						<div className="flex items-center gap-6">
+							<button className="px-8 py-4 flex group items-center gap-1 rounded-lg bg-white text-blue-500 transition-all duration-300 hover:scale-105">
+								<span className="font-medium">作品を見る</span>
+								<span className="-mx-3 opacity-0 transition-all group-hover:opacity-100 group-hover:mx-0">
+									<FiArrowRight size={20} />
+								</span>
+							</button>
 						</div>
-					</div>
+					</RevealOnScroll>
+
+					<RevealOnScroll delay={0.6}>
+						<div className="flex flex-col gap-4">
+							{/* <p className="text-2xl text-white">{`🧑🏻‍💻 Frontend Developer | Web & App Designer using`}</p> */}
+							<div className="flex items-center gap-4">
+								{[
+									"react",
+									"typescrip",
+									"react native",
+									"firebase",
+									"swift",
+								].map((item, index) => (
+									<RevealOnScroll
+										key={index}
+										delay={0.7 + index * 0.1}
+										initialY={60}
+									>
+										<div className="bg-white rounded-2xl w-16 h-16 flex items-center justify-center">
+											<span className="scale-105">
+												{renderTechItem(item)}
+											</span>
+										</div>
+									</RevealOnScroll>
+								))}
+							</div>
+						</div>
+					</RevealOnScroll>
 				</div>
 
-				<div className="w-[700px] h-[600px] relative shrink-0">
-					<Image
-						src={
-							"https://i.pinimg.com/736x/c4/e8/4f/c4e84f84f3dc134c22be664f698fb960.jpg"
-						}
-						alt="hero-img"
-						fill
-						className="rounded-2xl object-cover object-center w-full h-full"
-					/>
-				</div>
+				<RevealOnScroll delay={1.2} initialY={80} duration={0.8}>
+					<div className="w-[700px] h-[600px] relative shrink-0">
+						<Image
+							src={
+								"https://i.pinimg.com/736x/c4/e8/4f/c4e84f84f3dc134c22be664f698fb960.jpg"
+							}
+							alt="hero-img"
+							fill
+							className="rounded-2xl object-cover object-center w-full h-full"
+						/>
+					</div>
+				</RevealOnScroll>
 			</div>
 		</div>
 	);

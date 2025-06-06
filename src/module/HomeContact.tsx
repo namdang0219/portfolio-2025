@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import * as motion from "framer-motion/client";
 
 const HomeContact = () => {
 	return (
@@ -9,7 +10,7 @@ const HomeContact = () => {
 		>
 			<h2 className="text-4xl text-center font-semibold">Contact</h2>
 			<div className="w-full max-w-[1000px] mx-auto flex  items-start gap-12 mt-10">
-				<div className="relative w-[250px] aspect-square mt-8">
+				<motion.div initial={{scale: 0.8}} whileInView={{scale: 1}} className="relative w-[250px] aspect-square mt-8">
 					<Image
 						src={
 							"https://i.pinimg.com/736x/e5/83/1b/e5831b6ce2a22e0682aa54eb3f15d43d.jpg"
@@ -18,12 +19,23 @@ const HomeContact = () => {
 						fill
 						className="w-full h-full object-center object-cover rounded-full"
 					/>
-				</div>
+				</motion.div>
 				<div className="flex-1">
-					<div className="text-2xl text-gray-700 p-6 bg-white w-fit rounded-2xl shadow-lg relative">
+					<motion.div
+						initial={{ scale: 0.2, opacity: 0 }}
+						whileInView={{ scale: 1, opacity: 1 }}
+						transition={{
+							type: "spring",
+							stiffness: 300, // độ đàn hồi mạnh
+							damping: 15, // giảm độ lắc
+							bounce: 0.4, // độ nảy
+							delay: 0.2,
+						}}
+						className="text-2xl text-gray-700 p-6 origin-bottom-left bg-white w-fit rounded-2xl shadow-lg relative"
+					>
 						何か気になることがあれば、気軽にメッセージしてください！😊
 						<div className="border-solid border-t-white border-t-[28px] border-x-transparent border-x-[10px] border-b-0 w-3 h-3 absolute -bottom-4 left-0 rotate-45"></div>
-					</div>
+					</motion.div>
 					<div className="flex flex-col gap-6 mt-14">
 						{/* name */}
 						<div className="flex flex-col gap-2">

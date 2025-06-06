@@ -1,4 +1,5 @@
 import React from "react";
+import * as motion from "framer-motion/client";
 
 const HomeSkills = () => {
 	return (
@@ -7,6 +8,8 @@ const HomeSkills = () => {
 			className="flex flex-col gap-10 w-full max-w-[1200px] mx-auto px-5 scroll-m-24"
 		>
 			<h2 className="text-4xl font-semibold">Skill</h2>
+
+			{/* Content container */}
 			<div className="bg-white shadow-xl rounded-xl p-8">
 				<div className="grid grid-cols-2 gap-10">
 					{skills.map((skill, index) => (
@@ -21,14 +24,23 @@ const HomeSkills = () => {
 								{skill.name}
 							</div>
 							<div className="flex-1 relative bg-white">
-								<div
+								<motion.div
+									initial={{ width: 0 }}
+									whileInView={{
+										width: `${skill.percentage}%`,
+									}}
+									transition={{
+										duration: 0.75,
+										delay: index % 2 === 0 ? 0.2 : 0.4,
+										ease: "easeOut",
+									}}
 									className={`h-12`}
 									style={{
 										width: `${skill.percentage}%`,
 										backgroundColor: skill.color,
 										opacity: 0.8,
 									}}
-								></div>
+								/>
 								<span className="absolute right-5 text-black top-1/2 -translate-y-1/2">
 									{skill.percentage}%
 								</span>
