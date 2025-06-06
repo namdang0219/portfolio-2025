@@ -20,7 +20,7 @@ const HomeAbout = () => {
 						expedita suscipit aut itaque explicabo culpa!
 					</p>
 					<div className="flex items-center gap-6">
-						{["Go to Github", "Download CV"].map((item) => (
+						{["詳しく見る", "Githubへ"].map((item) => (
 							<div key={item}>
 								<button className="px-8 py-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
 									{item}

@@ -7,14 +7,12 @@
 		scroll-behavior: smooth;
 	}
 	body {
-		@apply text-lg
+		@apply text-lg leading-relaxed;
 	}
 }
 
 @layer components {
-	.container {
-		@apply w-full max-w-[1080px] px-10 mx-auto sm:px-4;
-	}
+	
 }
 
 // text rotate
@@ -119,5 +117,30 @@
 }
 
 .gridItem > img {
-	@apply rounded-2xl
+	@apply rounded-2xl;
+}
+
+.list-title {
+	@apply font-semibold text-xl mb-2 text-blue-500
+}
+
+// Marquee effect for text
+.slider-container {
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.slider-track {
+	// display: inline-block;
+	white-space: nowrap;
+	animation: scroll 30s linear infinite;
+}
+@keyframes scroll {
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
 }
