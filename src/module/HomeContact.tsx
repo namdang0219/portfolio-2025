@@ -26,9 +26,9 @@ const HomeContact = () => {
 						whileInView={{ scale: 1, opacity: 1 }}
 						transition={{
 							type: "spring",
-							stiffness: 300, // độ đàn hồi mạnh
-							damping: 15, // giảm độ lắc
-							bounce: 0.4, // độ nảy
+							stiffness: 300,
+							damping: 15,
+							bounce: 0.4,
 							delay: 0.2,
 						}}
 						className="text-2xl text-gray-700 p-6 origin-bottom-left bg-white w-fit rounded-2xl shadow-lg relative"
