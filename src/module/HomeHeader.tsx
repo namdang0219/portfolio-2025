@@ -1,7 +1,9 @@
 import Image from "next/image";
 import React from "react";
+import { FiArrowRight } from "react-icons/fi";
 
 const HomeHeader = () => {
+	// Render tech item based on the tech name
 	function renderTechItem(techName: string): React.ReactNode {
 		if (!techName) return null;
 		switch (techName) {
@@ -118,47 +120,49 @@ const HomeHeader = () => {
 	}
 
 	return (
-		<div className="p-5">
-			<div className="bg-blue-300 rounded-3xl p-10 flex items-center justify-between gap-28">
+		<div className="p-5 scroll-m-24">
+			<div className="bg-blue-400 rounded-3xl p-10 flex items-center justify-between gap-28">
 				<div className="flex flex-col gap-8">
-					<h1 className="text-3xl font-semibold text-white">
-						Welcome to my portfolio 🐶
-					</h1>
-					<p className="text-lg text-white">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Ea in placeat quasi, sapiente eius rerum, vitae
-						explicabo, officiis fugit provident fuga doloribus
-						tenetur laboriosam reiciendis saepe. Minus quae tempore
-						rem tenetur debitis optio dolorem sequi velit modi et.
-						Labore doloribus facere consectetur iste velit soluta
-						fuga, consequatur in amet, ut impedit tenetur debitis
-						illo ea enim.
+					<p className="text-4xl font-semibold text-white">
+						私のポートフォリオへようこそ！ 🐶
 					</p>
+
+					<p className="text-xl text-white leading-8 tracking-wider">
+						こんにちは、ナムと申します。
+						<br />
+						現在、ECCコンピュータ専門学校で学びながら、フロントエンド兼Web・アプリデザイナーを目指しています。
+						また、より完成度の高い作品を作るために、バックエンドも自分で勉強中です。
+					</p>
+
 					<div className="flex items-center gap-6">
-						{["View Projects", "Contact Me"].map((item) => (
-							<div key={item}>
-								<button className="px-8 py-4 rounded-lg text-white bg-blue-500 border border-blue-500 hover:bg-white hover:text-blue-500 transition-colors">
-									{item}
-								</button>
-							</div>
-						))}
+						<button className="px-8 py-4 flex group items-center gap-1 rounded-lg bg-white text-blue-500 transition-all duration-300 hover:scale-105">
+							<span className="font-medium">作品を見る</span>
+							<span className="-mx-3 opacity-0 transition-all group-hover:opacity-100 group-hover:mx-0">
+								<FiArrowRight size={20} />
+							</span>
+						</button>
 					</div>
 
-					<div className="flex items-center gap-4">
-						{[
-							"react",
-							"typescrip",
-							"react native",
-							"firebase",
-							"swift",
-						].map((item, index) => (
-							<div
-								key={index}
-								className="bg-white rounded-2xl w-14 h-14 flex items-center justify-center"
-							>
-								{renderTechItem(item)}
-							</div>
-						))}
+					<div className="flex flex-col gap-4">
+						{/* <p className="text-2xl text-white">{`🧑🏻‍💻 Frontend Developer | Web & App Designer using`}</p> */}
+						<div className="flex items-center gap-4">
+							{[
+								"react",
+								"typescrip",
+								"react native",
+								"firebase",
+								"swift",
+							].map((item, index) => (
+								<div
+									key={index}
+									className="bg-white rounded-2xl w-16 h-16 flex items-center justify-center"
+								>
+									<span className="scale-105">
+										{renderTechItem(item)}
+									</span>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
 

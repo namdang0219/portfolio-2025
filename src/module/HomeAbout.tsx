@@ -5,20 +5,35 @@ const HomeAbout = () => {
 	return (
 		<div
 			id="about"
-			className="flex flex-col gap-10 w-full max-w-[1200px] mx-auto px-5"
+			className="flex flex-col gap-10 w-full max-w-[1200px] mx-auto px-5  scroll-m-24"
 		>
 			<h2 className="text-4xl font-semibold">About</h2>
-			<div className="flex items-center gap-28">
-				<div className="flex flex-col gap-8">
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Culpa aperiam aliquid quisquam tempora temporibus ut
-						deleniti rerum a, sint ex repellat numquam consequuntur
-						iusto explicabo consequatur unde harum eligendi suscipit
-						asperiores dolorum nobis blanditiis aspernatur. Porro
-						molestiae unde sunt nemo fuga, ab accusamus, officiis,
-						expedita suscipit aut itaque explicabo culpa!
-					</p>
+
+			{/* Content */}
+			<div className="flex items-center gap-28 mt-5">
+				{/* Left container */}
+				<div className="flex flex-col gap-8 translate-y-2">
+					<h1 className="uppercase text-3xl font-medium px-3 border-l-4 border-l-blue-400">
+						Dang xuan nam
+					</h1>
+
+					<div className="flex flex-col gap-3 text-justify">
+						<p>
+							✅
+							2001年生まれ、ベトナム出身。現在、ECCコンピュータ専門学校に在学中です。
+						</p>
+						<p>
+							✅
+							ベトナム出身、現在24歳で、ECC専門学校に通っています。
+							旅行や新しいことを学ぶのが好きです。
+						</p>
+						<p>
+							✅ 主に使用している言語・技術は、
+							Web開発ではReactとTypeScript、 モバイル開発ではReact
+							NativeとSwiftです。 よろしくお願いします！
+						</p>
+					</div>
+
 					<div className="flex items-center gap-6">
 						{["詳しく見る", "Githubへ"].map((item) => (
 							<div key={item}>
@@ -30,6 +45,7 @@ const HomeAbout = () => {
 					</div>
 				</div>
 
+				{/* Right Container */}
 				<div className="relative w-[500px] h-[400px] shrink-0">
 					<Image
 						src={

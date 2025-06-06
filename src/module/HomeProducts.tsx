@@ -1,17 +1,22 @@
 import Image from "next/image";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
-const HomeProducts = () => {
+const HomeProducts = ({
+	setShowDetail,
+}: {
+	setShowDetail: Dispatch<SetStateAction<boolean>>;
+}) => {
 	return (
 		<div
 			id="products"
-			className="flex flex-col gap-10 w-full max-w-[1200px] mx-auto px-5"
+			className="flex flex-col gap-10 w-full max-w-[1200px] mx-auto px-5 scroll-m-24"
 		>
 			<h2 className="text-4xl font-semibold">Products</h2>
 			<div className="grid grid-cols-3 gap-4">
 				{Array.from({ length: 6 }).map((_, index) => (
 					<div
 						key={index}
+						onClick={() => setShowDetail(true)}
 						className="bg-white p-3 shadow-md rounded-3xl"
 					>
 						<div className="relative w-full aspect-square mb-4">
