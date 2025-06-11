@@ -9,9 +9,13 @@ import ProductPage from "./ProductPage";
 import HomeSkills from "@/module/HomeSkills";
 import HomeGallery from "@/module/HomeGallery";
 import HomeContact from "@/module/HomeContact";
+import { DATA, Product } from "@/data/DATA";
 
 const HomePage = () => {
 	const [showDetail, setShowDetail] = React.useState(false);
+	const [currentProduct, setCurrentProduct] = React.useState<Product>(
+		DATA.PRODUCTS[0]
+	);
 
 	return (
 		<div className="h-screen w-screen overflow-hidden relative">
@@ -24,24 +28,32 @@ const HomePage = () => {
 
 				<HomeAbout />
 
-				<HomeProducts setShowDetail={setShowDetail} />
+				<HomeProducts
+					setShowDetail={setShowDetail}
+					setCurrentProduct={setCurrentProduct}
+				/>
 
 				<HomeSkills />
-				
+
 				<HomeGallery />
-				
+
 				<HomeContact />
 
 				<Footer />
 			</div>
 
 			{/* bottom sheet */}
-			<div
-				className="absolute w-screen h-screen left-0 bg-white z-50 transition-all duration-300"
-				style={{ bottom: showDetail ? "0" : "-100%" }}
-			>
-				<ProductPage setShow={setShowDetail} />
-			</div>
+			{currentProduct && (
+				<div
+					className="absolute w-screen h-screen left-0 bg-white z-50 transition-all duration-300"
+					style={{ bottom: showDetail ? "0" : "-100%" }}
+				>
+					<ProductPage
+						setShow={setShowDetail}
+						product={currentProduct}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };

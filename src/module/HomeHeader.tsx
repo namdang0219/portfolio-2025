@@ -1,5 +1,6 @@
 import RevealOnScroll from "@/components/RevealOnScroll";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 
@@ -121,7 +122,7 @@ const HomeHeader = () => {
 	}
 
 	return (
-		<div className="p-5 scroll-m-24">
+		<div id="header" className="p-5 scroll-m-24">
 			<div className="bg-blue-400 overflow-hidden rounded-3xl p-10 flex items-center justify-between gap-28">
 				<div className="flex flex-col gap-8">
 					<RevealOnScroll>
@@ -141,12 +142,12 @@ const HomeHeader = () => {
 
 					<RevealOnScroll delay={0.4}>
 						<div className="flex items-center gap-6">
-							<button className="px-8 py-4 flex group items-center gap-1 rounded-lg bg-white text-blue-500 transition-all duration-300 hover:scale-105">
+							<Link href={"#products"} className="px-8 py-4 flex group items-center gap-1 rounded-lg bg-white text-blue-500 transition-all duration-300 hover:scale-105">
 								<span className="font-medium">作品を見る</span>
 								<span className="-mx-3 opacity-0 transition-all group-hover:opacity-100 group-hover:mx-0">
 									<FiArrowRight size={20} />
 								</span>
-							</button>
+							</Link>
 						</div>
 					</RevealOnScroll>
 

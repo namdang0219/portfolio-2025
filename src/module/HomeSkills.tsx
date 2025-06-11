@@ -65,7 +65,7 @@ const skills: {
 	{ name: "Redux", percentage: 45, color: "#8b5cf6" },
 	{ name: "Next.js", percentage: 50, color: "#6b7280" },
 	{ name: "React Native", percentage: 75, color: "#06b6d4" },
-	{ name: "TypeScript", percentage: 40, color: "#3B82F6" },
+	{ name: "TypeScript", percentage: 30, color: "#3B82F6" },
 	{ name: "Tailwind CSS", percentage: 85, color: "#14b8a6" },
 	{ name: "Firebase", percentage: 45, color: "#f97316" },
 	{ name: "Swift UI", percentage: 30, color: "#f97316" },

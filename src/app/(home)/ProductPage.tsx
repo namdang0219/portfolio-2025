@@ -1,10 +1,14 @@
+import { Product } from "@/data/DATA";
 import Image from "next/image";
 import React, { Dispatch, SetStateAction } from "react";
+import { HiMiniXMark } from "react-icons/hi2";
 
 const ProductPage = ({
 	setShow,
+	product,
 }: {
 	setShow: Dispatch<SetStateAction<boolean>>;
+	product: Product;
 }) => {
 	return (
 		<div className="w-screen overflow-y-scroll h-screen bg-white relative">
@@ -30,97 +34,119 @@ const ProductPage = ({
 			<div className="wfull max-w-[980px] mx-auto px-5 pt-8 pb-20">
 				<div className="flex flex-col gap-14">
 					{/* Image */}
-					<div className="w-full aspect-video relative">
-						<Image
-							src={
-								"https://i.pinimg.com/736x/d8/3b/84/d83b843093c804b6d8c2dea87580715f.jpg"
-							}
-							alt="product-image"
-							fill
-							className="w-full h-full object-cover object-center rounded-2xl"
-						/>
-					</div>
-
-					<div className="flex flex-col gap-2">
+					<div className="flex flex-col gap-5">
+						<div className="w-full aspect-video relative">
+							<Image
+								src={product.image}
+								alt="product-image"
+								fill
+								className="w-full h-full object-cover object-center rounded-2xl"
+							/>
+						</div>
 						{/* type */}
 						<span className="text-white bg-blue-500 px-3 py-1.5 rounded-full w-fit text-xs font-medium block mx-auto">
-							個人制作
+							{product.type}
 						</span>
-
 						{/* title */}
 						<h2 className="text-3xl text-center font-semibold">
-							Holo Cinema
+							{product.title}
 						</h2>
 						{/* description */}
-						<p className="text-gray-600 w-full mx-auto max-w-[80%] text-center mt-2">
-							このプロジェクトは、ホログラムを使用して映画を鑑賞する体験を提供することを目的としています。ユーザーは、特別なデバイスを使用して、立体的な映像を楽しむことができます。
+						<p className="text-gray-600 tracking-wider w-full mx-auto max-w-[80%] text-center mt-2">
+							{product.short_description}
 						</p>
 					</div>
 
 					{/* Tech stack */}
 					<div className="grid grid-cols-[2fr_1fr_1fr] gap-8">
-						{Object.entries(tableData).map(
-							([key, value], index) => (
-								<div key={index}>
-									<h3 className="list-title">
-										{key === "tech"
-											? "🧑🏻‍💻 使用したテクニック"
-											: key === "time"
-											? "🕰️ 実施期間"
-											: "🙋🏻 役割"}
-									</h3>
-									<p>{value}</p>
-								</div>
-							)
-						)}
+						{/* Technique */}
+						<section>
+							<h3 className="list-title">テクニック</h3>
+							<p>{product.tags.join(", ")}</p>
+						</section>
+
+						{/* Time */}
+						<section>
+							<h3 className="list-title">期間</h3>
+							<p>{product.time}</p>
+						</section>
+
+						{/* Technique */}
+						<section>
+							<h3 className="list-title">役割</h3>
+							<p>{product.role}</p>
+						</section>
 					</div>
 
 					{/* 感想 */}
 					<div>
-						<h3 className="list-title">感想</h3>
-						<p>
-							このプロジェクトは、ホログラム技術を使用して映画を鑑賞する新しい体験を提供することを目指しました。開発中は、技術的な課題やデザインの調整に苦労しましたが、最終的にはユーザーにとって魅力的な体験を提供できるアプリケーションに仕上げることができました。
+						<h3
+							className="list-title"
+							style={{ whiteSpace: "pre-line" }}
+						>
+							説明・感想
+						</h3>
+						<p className="flex flex-col gap-3 text-justify">
+							{product.description
+								.split("\n")
+								.map((line, index) => (
+									<span key={index}>
+										{"・" + line}
+										<br />
+									</span>
+								))}
 						</p>
 					</div>
 
 					{/* Links */}
+
 					<div>
-						<h3 className="list-title">デモ</h3>
-						<div>
-							<span>{"Demo Site >  "}</span>
-							<a
-								href="https://example.com/demo"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="hover:underline hover:text-pink-500"
-							>
-								https://example.com/demo
-							</a>
-						</div>
-						<div>
-							<span>{"Source Code >  "}</span>
-							<a
-								href="https://example.com/demo"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="hover:underline hover:text-pink-500"
-							>
-								https://github.com/demo
-							</a>
+						<h3 className="list-title">リンク</h3>
+						{product.demo_site && (
+							<div>
+								<span>{"Demo Site >  "}</span>
+								<a
+									href={product.demo_site}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="hover:underline hover:text-pink-500"
+								>
+									{product.demo_site}
+								</a>
+							</div>
+						)}
+
+						<div className="flex items-center gap-2">
+							<span>{"ソースコード:"}</span>
+							{product.github_link ? (
+								<a
+									href={product.github_link}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="hover:underline text-pink-500 text-xl"
+								>
+									{product.github_link}
+								</a>
+							) : (
+								<span className="text-gray-400">
+									プライベート
+								</span>
+							)}
 						</div>
 					</div>
 
-					<div className="h-48"></div>
+					<button
+						onClick={() => setShow(false)}
+						className="p-3 mt-8 rounded-full mx-auto opacity-30 hover:opacity-100 hover:border-red-500 hover:text-red-500 border border-black w-fit hover:scale-105 transition-all"
+					>
+						<HiMiniXMark size={25} />
+					</button>
+
+					{/* <div className="h-48"></div> */}
 				</div>
 			</div>
 		</div>
 	);
-};
-
-const tableData = {
-	tech: "React, Typescript, Redux, Tailwind",
-	time: "2ヶ月",
-	role: "フロントエンドエンジニア",
 };
 
 /**

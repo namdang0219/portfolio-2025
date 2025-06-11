@@ -29,6 +29,7 @@
 		"slick-carousel": "^1.8.1",
 		"styled-components": "^6.1.15",
 		"three": "^0.173.0",
+		"uuid": "^11.1.0",
 		"yakuhanjp": "^4.1.1"
 	},
 	"devDependencies": {

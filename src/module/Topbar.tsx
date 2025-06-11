@@ -33,13 +33,13 @@ const Topbar = () => {
 	);
 };
 
-const navs: { name: string; href: string }[] = [
-	{ name: "Top", href: "#" },
-	{ name: "About", href: "/#about" },
-	{ name: "Products", href: "/#products" },
-	{ name: "Skills", href: "/#skills" },
-	{ name: "Gallery", href: "/#gallery" },
-	{ name: "Contact", href: "/#contact" },
+export const navs: { name: string; href: string }[] = [
+	{ name: "Top", href: "#header" },
+	{ name: "About", href: "#about" },
+	{ name: "Products", href: "#products" },
+	{ name: "Skills", href: "#skills" },
+	{ name: "Gallery", href: "#gallery" },
+	{ name: "Contact", href: "#contact" },
 ];
 
 export default Topbar;

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { navs } from "./Topbar";
 
 const Footer = () => {
 	return (
@@ -9,21 +10,11 @@ const Footer = () => {
 					<p className="font-semibold text-2xl">Site map</p>
 
 					<ul className="flex flex-col gap-2">
-						<li>
-							<Link href="/">Top</Link>
-						</li>
-						<li>
-							<Link href="/#about">About</Link>
-						</li>
-						<li>
-							<Link href="/#skills">Skill</Link>
-						</li>
-						<li>
-							<Link href="/#projects">Products</Link>
-						</li>
-						<li>
-							<Link href="/#contact">Contact</Link>
-						</li>
+						{navs.map((item) => (
+							<Link key={item.name} href={item.href} className="hover:underline">
+								{item.name}
+							</Link>
+						))}
 					</ul>
 				</div>
 
@@ -31,12 +22,7 @@ const Footer = () => {
 					<p className="font-semibold text-2xl">SNS</p>
 
 					<ul className="flex flex-col gap-2">
-						<li>
-							<Link href="/">Github</Link>
-						</li>
-						<li>
-							<Link href="/#about">Email</Link>
-						</li>
+						{socials.map(item => <Link key={item.name} href={item.href} target="_blank" className="hover:underline">{item.name}</Link>)}
 					</ul>
 				</div>
 			</div>
@@ -48,5 +34,16 @@ const Footer = () => {
 		</div>
 	);
 };
+
+const socials = [
+	{
+		href: "https://github.com/namdang0219",
+		name: "Github"
+	},
+	{
+		href: "https://mail.google.com/mail/?view=cm&fs=1&to=namdang.contact@gmail.com",
+		name: "Email"
+	},
+]
 
 export default Footer;
