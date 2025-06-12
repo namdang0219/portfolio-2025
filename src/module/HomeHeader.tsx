@@ -183,7 +183,7 @@ const HomeHeader = () => {
 					<div className="w-[700px] h-[600px] relative shrink-0">
 						<Image
 							src={
-								"https://i.pinimg.com/736x/c4/e8/4f/c4e84f84f3dc134c22be664f698fb960.jpg"
+								"/assets/header.jpg"
 							}
 							alt="hero-img"
 							fill

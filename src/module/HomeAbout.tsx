@@ -30,19 +30,14 @@ const HomeAbout = () => {
 							</p>
 							<p>
 								✅ 主に使用している言語・技術は、
-								Web開発ではReactとTypeScript、 モバイル開発ではReact
-								NativeとSwiftです。 よろしくお願いします！
+								Web開発ではReactとTypeScript、
+								モバイル開発ではReact NativeとSwiftです。
+								よろしくお願いします！
 							</p>
 						</div>
-						<div className="flex items-center gap-6">
-							{["詳しく見る", "Githubへ"].map((item) => (
-								<div key={item}>
-									<button className="px-8 py-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-										{item}
-									</button>
-								</div>
-							))}
-						</div>
+						<button className="px-8 py-4 w-fit bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+							Githubを見る
+						</button>
 					</div>
 				</RevealOnScroll>
 
@@ -51,7 +46,7 @@ const HomeAbout = () => {
 					<div className="relative w-[500px] h-[400px] shrink-0">
 						<Image
 							src={
-								"https://i.pinimg.com/736x/35/1a/95/351a951944b5a9c0ce5de0e716f1f6ae.jpg"
+								"/assets/home-about.jpg"
 							}
 							alt="about-img"
 							fill

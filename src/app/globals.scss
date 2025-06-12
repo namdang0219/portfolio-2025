@@ -15,106 +15,27 @@
 	
 }
 
-// text rotate
-.text-rotate {
-	display: flex;
-	flex-wrap: wrap;
-	white-space: pre-wrap;
-	position: relative;
-	border-bottom: 1px;
-}
+// Loading anim
+.loader {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
 
-.text-rotate-sr-only {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	white-space: nowrap;
-	border: 0;
-}
-
-.text-rotate-word {
-	display: inline-flex;
-}
-
-.text-rotate-lines {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-}
-
-.text-rotate-element {
-	display: inline-block;
-}
-
-.text-rotate-space {
-	white-space: pre;
-}
-
-.header-img-container {
-	// height: 400px;
-	animation: headerImgAnim 5s forwards ease-in-out;
-}
-
-@keyframes headerImgAnim {
-	0% {
-		opacity: 0;
-		transform: translateY(20) scale(0.5);
-		width: 0;
-	}
-	30% {
-		opacity: 1;
-		transform: translateY(0) scale(1);
-		width: 800px;
-	}
-	100% {
-		transform: translateY(0) scale(1);
-		width: 800px;
-	}
-}
-
-// scroll down button
-.scroll-down-button {
-	// position: absolute;
-	width: 24px;
-	height: 24px;
-	border-left: 1px solid black;
-	border-bottom: 1px solid black;
-	-webkit-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	-webkit-animation: sdb05 1.5s infinite;
-	animation: sdb05 1.5s infinite;
-	box-sizing: border-box;
-}
-@-webkit-keyframes sdb05 {
-	0% {
-		-webkit-transform: rotate(-45deg) translate(0, 0);
-		opacity: 0;
-	}
-	50% {
-		opacity: 1;
-	}
-	100% {
-		-webkit-transform: rotate(-45deg) translate(-20px, 20px);
-		opacity: 0;
-	}
-}
-@keyframes sdb05 {
-	0% {
-		transform: rotate(-45deg) translate(0, 0);
-		opacity: 0;
-	}
-	50% {
-		opacity: 1;
-	}
-	100% {
-		transform: rotate(-45deg) translate(-20px, 20px);
-		opacity: 0;
-	}
-}
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+  
 
 .gridItem > img {
 	@apply rounded-2xl;

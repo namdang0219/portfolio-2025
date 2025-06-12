@@ -1,8 +1,40 @@
 import Image from "next/image";
 import React from "react";
 import * as motion from "framer-motion/client";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "@/firebase-config";
+import { toast } from "react-toastify";
 
 const HomeContact = () => {
+	const [name, setName] = React.useState<string>("");
+	const [email, setEmail] = React.useState<string>("");
+	const [content, setContent] = React.useState<string>("");
+	const [loading, setLoading] = React.useState<boolean>(false);
+
+	const handleSendEmail = async () => {
+		if (!email || !name || !content) {
+			alert("内容を全部入力してください");
+			return;
+		}
+
+		try {
+			setLoading(true);
+			await addDoc(collection(db, "mails"), {
+				name,
+				email,
+				content,
+				timestamp: Date(),
+			});
+			setLoading(false);
+			toast.success("メールを送信しました");
+			setName("");
+			setEmail("");
+			setContent("");
+		} catch (e) {
+			console.error("Error adding document: ", e);
+		}
+	};
+
 	return (
 		<div
 			id="contact"
@@ -10,10 +42,14 @@ const HomeContact = () => {
 		>
 			<h2 className="text-4xl text-center font-semibold">Contact</h2>
 			<div className="w-full max-w-[1000px] mx-auto flex  items-start gap-12 mt-10">
-				<motion.div initial={{scale: 0.8}} whileInView={{scale: 1}} className="relative w-[250px] aspect-square mt-8">
+				<motion.div
+					initial={{ scale: 0.5 }}
+					whileInView={{ scale: 1 }}
+					className="relative w-[250px] aspect-square mt-8"
+				>
 					<Image
 						src={
-							"https://i.pinimg.com/736x/e5/83/1b/e5831b6ce2a22e0682aa54eb3f15d43d.jpg"
+							"/assets/contact.jpg"
 						}
 						alt="contact-img"
 						fill
@@ -36,6 +72,8 @@ const HomeContact = () => {
 						何か気になることがあれば、気軽にメッセージしてください！😊
 						<div className="border-solid border-t-white border-t-[28px] border-x-transparent border-x-[10px] border-b-0 w-3 h-3 absolute -bottom-4 left-0 rotate-45"></div>
 					</motion.div>
+
+					{/* FORM FIELD */}
 					<div className="flex flex-col gap-6 mt-14">
 						{/* name */}
 						<div className="flex flex-col gap-2">
@@ -44,6 +82,8 @@ const HomeContact = () => {
 							</label>
 							<input
 								type="text"
+								value={name}
+								onChange={(e) => setName(e.target.value)}
 								placeholder="氏名を入力..."
 								className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
 							/>
@@ -55,6 +95,8 @@ const HomeContact = () => {
 							</label>
 							<input
 								type="text"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
 								placeholder="メールアドレスを入力..."
 								className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
 							/>
@@ -66,11 +108,20 @@ const HomeContact = () => {
 							</label>
 							<textarea
 								placeholder="内容を入力..."
+								value={content}
+								onChange={(e) => setContent(e.target.value)}
 								className="border border-gray-300 rounded-lg p-2 h-32 focus:outline-none focus:ring-2 focus:ring-blue-600"
 							/>
 						</div>
-						<button className="px-8 w-fit py-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-							送信
+						<button
+							onClick={handleSendEmail}
+							className="w-[96px] h-14 flex items-center justify-center bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+						>
+							{!loading ? (
+								<span>送信</span>
+							) : (
+								<span className="loader" />
+							)}
 						</button>
 					</div>
 				</div>

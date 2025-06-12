@@ -7,7 +7,7 @@ import HomeProducts from "@/module/HomeProducts";
 import Footer from "@/module/Footer";
 import ProductPage from "./ProductPage";
 import HomeSkills from "@/module/HomeSkills";
-import HomeGallery from "@/module/HomeGallery";
+// import HomeGallery from "@/module/HomeGallery";
 import HomeContact from "@/module/HomeContact";
 import { DATA, Product } from "@/data/DATA";
 
@@ -35,7 +35,7 @@ const HomePage = () => {
 
 				<HomeSkills />
 
-				<HomeGallery />
+				{/* <HomeGallery /> */}
 
 				<HomeContact />
 
