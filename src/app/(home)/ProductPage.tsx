@@ -37,7 +37,7 @@ const ProductPage = ({
 					<div className="flex flex-col gap-5">
 						<div className="w-full aspect-video relative">
 							<Image
-								src={product.image}
+								src={`/assets/banner/${product.image}`}
 								alt="product-image"
 								fill
 								className="w-full h-full object-cover object-center rounded-2xl"

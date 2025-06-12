@@ -33,10 +33,7 @@ const HomeProducts = ({
 							<div>
 								<div className="relative w-full aspect-video mb-4 overflow-hidden rounded-xl">
 									<Image
-										src={
-											product.image ||
-											"https://i.pinimg.com/736x/3b/78/6f/3b786fa79282a6465379cb97a9ba4060.jpg"
-										}
+										src={`/assets/banner/${product.image}`}
 										alt="product-cover"
 										fill
 										className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300 ease-in-out"

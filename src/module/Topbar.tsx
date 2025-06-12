@@ -5,9 +5,9 @@ import { FaGithub } from "react-icons/fa";
 const Topbar = () => {
 	return (
 		<div className="w-screen flex items-center justify-between py-5 px-8 bg-white bg-opacity-70 backdrop-blur-xl">
-			<div className="text-2xl font-bold cursor-pointer">
+			<Link href={"/#header"} className="text-2xl font-bold cursor-pointer">
 				Portfolio 🐶
-			</div>
+			</Link>
 
 			<div className="flex items-center gap-10">
 				{navs.map((nav) => (
