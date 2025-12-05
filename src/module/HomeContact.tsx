@@ -1,15 +1,13 @@
 import Image from "next/image";
 import React from "react";
 import * as motion from "framer-motion/client";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "@/firebase-config";
 import { toast } from "react-toastify";
 
 const HomeContact = () => {
 	const [name, setName] = React.useState<string>("");
 	const [email, setEmail] = React.useState<string>("");
 	const [content, setContent] = React.useState<string>("");
-	const [loading, setLoading] = React.useState<boolean>(false);
+	// const [loading, setLoading] = React.useState<boolean>(false);
 
 	const handleSendEmail = async () => {
 		if (!email || !name || !content) {
@@ -18,18 +16,18 @@ const HomeContact = () => {
 		}
 
 		try {
-			setLoading(true);
-			await addDoc(collection(db, "mails"), {
-				name,
-				email,
-				content,
-				timestamp: Date(),
-			});
-			setLoading(false);
+			// setLoading(true);
+			// await addDoc(collection(db, "mails"), {
+			// 	name,
+			// 	email,
+			// 	content,
+			// 	timestamp: Date(),
+			// });
+			// setLoading(false);
 			toast.success("メールを送信しました");
-			setName("");
-			setEmail("");
-			setContent("");
+			// setName("");
+			// setEmail("");
+			// setContent("");
 		} catch (e) {
 			console.error("Error adding document: ", e);
 		}
@@ -48,9 +46,7 @@ const HomeContact = () => {
 					className="relative w-[250px] aspect-square mt-8"
 				>
 					<Image
-						src={
-							"/assets/contact.jpg"
-						}
+						src={"/assets/contact.jpg"}
 						alt="contact-img"
 						fill
 						className="w-full h-full object-center object-cover rounded-full"
@@ -117,11 +113,11 @@ const HomeContact = () => {
 							onClick={handleSendEmail}
 							className="w-[96px] h-14 flex items-center justify-center bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
 						>
-							{!loading ? (
-								<span>送信</span>
-							) : (
+							{/* {!loading ? ( */}
+							<span>送信</span>
+							{/* ) : (
 								<span className="loader" />
-							)}
+							)} */}
 						</button>
 					</div>
 				</div>
